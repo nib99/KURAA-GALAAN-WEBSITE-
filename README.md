@@ -5,4 +5,4 @@ A static website for Kuraa Galaan Charity Organization, built with HTML, Tailwin
 ## Setup
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/kura-galaan-charity.git
+   git clone https://github.com/nib99/kura-galaan-charity.git
