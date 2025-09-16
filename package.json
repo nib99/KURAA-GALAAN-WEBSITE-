@@ -1,0 +1,12 @@
+{
+  "name": "kura-galaan-charity",
+  "version": "1.0.0",
+  "description": "Kuraa Galaan Charity Organization website",
+  "scripts": {
+    "start": "serve -s ."
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "serve": "^14.2.1"
+  }
+}
