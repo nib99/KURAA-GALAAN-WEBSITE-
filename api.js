@@ -1,7 +1,6 @@
 
 // lib/api.js
-const API_BASE_URL = 'https://us-central1-kuraa-galaan-backend.cloudfunctions.net/api';
-
+const API_BASE_URL = 'https://kuraagalaan-charity-backend.onrender.com/api';
 class ApiService {
   async request(endpoint, options = {}) {
     const url = `${API_BASE_URL}${endpoint}`;
