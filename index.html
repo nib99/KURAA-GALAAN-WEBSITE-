@@ -3,1544 +3,1354 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kuraa Galaan Charity Organization - Making a Difference Together</title>
+    <title>Kuraa Galaan Charity Organization - Making a Difference in Ethiopia 🇪🇹</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        :root {
-            --primary: #006D77;
-            --secondary: #83C5BE;
-            --accent: #FFD166;
-            --background: #F9F9F9;
-            --text: #1A1A1A;
-            --white: #FFFFFF;
-            --light-gray: #F5F5F5;
-        }
-
-        * {
-            font-family: 'Inter', sans-serif;
-        }
-
         body {
-            background-color: var(--background);
-            color: var(--text);
-            line-height: 1.6;
+            box-sizing: border-box;
         }
-
-        .primary-color { color: var(--primary); }
-        .secondary-color { color: var(--secondary); }
-        .accent-color { color: var(--accent); }
-
-        .bg-primary { background-color: var(--primary); }
-        .bg-secondary { background-color: var(--secondary); }
-        .bg-accent { background-color: var(--accent); }
-
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+        }
+        
+        .gradient-bg-secondary {
+            background: #1f2937;
+        }
+        
+        .gradient-bg-success {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+        }
+        
+        .hero-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.08'%3E%3Ccircle cx='30' cy='30' r='3'/%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3Ccircle cx='50' cy='50' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .card-shadow {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 10px 20px -5px rgba(0, 0, 0, 0.08);
+        }
+        
+        .card-shadow-hover {
+            box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.2), 0 15px 25px -5px rgba(0, 0, 0, 0.12);
+        }
+        
         .btn-primary {
-            background-color: var(--primary);
-            color: white;
-            padding: 12px 32px;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            border: none;
-            cursor: pointer;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
         }
-
+        
         .btn-primary:hover {
-            background-color: #005a63;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 109, 119, 0.3);
-        }
-
-        .btn-secondary {
-            background-color: var(--accent);
-            color: var(--text);
-            padding: 12px 32px;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-secondary:hover {
-            background-color: #e6bc5a;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 209, 102, 0.4);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-            padding: 10px 30px;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            cursor: pointer;
-        }
-
-        .btn-outline:hover {
-            background-color: var(--primary);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 109, 119, 0.3);
-        }
-
-        .card {
-            background: white;
-            border-radius: 20px;
-            padding: 32px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            border: 1px solid #f0f0f0;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
-        }
-
-        .hero-gradient {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-        }
-
-        .section-padding {
-            padding: 80px 0;
-        }
-
-        .nav-link {
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 500;
-            padding: 8px 16px;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-        }
-
-        .nav-link:hover, .nav-link.active {
-            background-color: var(--secondary);
-            color: white;
-        }
-
-        .impact-number {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--primary);
-            line-height: 1;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        .fade-in {
-            animation: fadeIn 0.6s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 16px 20px;
-            border: 2px solid #e5e5e5;
-            border-radius: 12px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            background: white;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(0, 109, 119, 0.1);
-        }
-
-        .donation-amount {
-            background: white;
-            border: 2px solid #e5e5e5;
-            border-radius: 12px;
-            padding: 16px 20px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .donation-amount:hover, .donation-amount.selected {
-            border-color: var(--primary);
-            background-color: var(--primary);
-            color: white;
-        }
-
-        .stats-card {
-            background: white;
-            border-radius: 16px;
-            padding: 24px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-        }
-
-        .stats-card:hover {
+            background: linear-gradient(135deg, #1e40af 0%, #4338ca 100%);
             transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 15px 35px rgba(30, 58, 138, 0.4);
         }
-
-        @media (max-width: 768px) {
-            .section-padding {
-                padding: 60px 0;
-            }
-            
-            .impact-number {
-                font-size: 2.5rem;
-            }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #1e40af 0%, #4338ca 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(30, 58, 138, 0.4);
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .animate-pulse-slow {
+            animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        .currency-selector {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .donation-card {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+        
+        .premium-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .dark-card {
+            background: linear-gradient(145deg, #1f2937, #111827);
+            color: #f9fafb;
+            border: 1px solid rgba(55, 65, 81, 0.5);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(135deg, #16a34a, #15803d);
+            border-radius: 1px;
+        }
+        
+        .section-fade {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .section-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .loading-spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #1e3a8a;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .success-checkmark {
+            animation: checkmark 0.6s ease-in-out;
+        }
+        
+        @keyframes checkmark {
+            0% { transform: scale(0); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
         }
     </style>
 </head>
-<body>
+<body class="font-sans antialiased" x-data="charityApp()">
     <!-- Navigation -->
-    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
+    <nav class="fixed top-0 w-full z-50 bg-gray-800/95 backdrop-blur-md shadow-lg" x-data="{ mobileMenuOpen: false }" style="background-color: rgba(31, 41, 55, 0.95)">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
                 <div class="flex items-center space-x-3">
-                    <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
-                        <i class="fas fa-heart text-white text-xl"></i>
+                    <div class="w-10 h-10 bg-gradient-to-br from-blue-800 to-indigo-700 rounded-full flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">KG</span>
                     </div>
                     <div>
-                        <div class="font-bold text-xl primary-color">Kuraa Galaan</div>
-                        <div class="text-sm text-gray-600">Charity Organization</div>
+                        <h1 class="text-xl font-bold text-white">KURAA GALAAN</h1>
+                        <p class="text-xs text-gray-300">Charity Organization</p>
                     </div>
                 </div>
-
+                
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#" onclick="showPage('home')" class="nav-link active" id="nav-home">Home</a>
-                    <a href="#" onclick="showPage('about')" class="nav-link" id="nav-about">About Us</a>
-                    <a href="#" onclick="showPage('programs')" class="nav-link" id="nav-programs">Programs</a>
-                    <a href="#" onclick="showPage('involve')" class="nav-link" id="nav-involve">Get Involved</a>
-                    <a href="#" onclick="showPage('contact')" class="nav-link" id="nav-contact">Contact</a>
-                    <a href="#" onclick="showPage('donate')" class="btn-primary">
-                        <i class="fas fa-heart"></i>
-                        Donate Now
-                    </a>
+                    <a href="#home" @click="currentPage = 'home'" class="nav-link text-white hover:text-green-400 font-medium">Home</a>
+                    <a href="#donate" @click="currentPage = 'donate'" class="nav-link text-white hover:text-green-400 font-medium">Donate Now</a>
+                    <a href="#programs" @click="currentPage = 'programs'" class="nav-link text-white hover:text-green-400 font-medium">Our Programs</a>
+                    <a href="#involved" @click="currentPage = 'involved'" class="nav-link text-white hover:text-green-400 font-medium">Get Involved</a>
+                    <a href="#about" @click="currentPage = 'about'" class="nav-link text-white hover:text-green-400 font-medium">About Us</a>
+                    <a href="#contact" @click="currentPage = 'contact'" class="nav-link text-white hover:text-green-400 font-medium">Contact</a>
                 </div>
-
-                <!-- Mobile Menu Button -->
-                <button class="md:hidden p-2 rounded-lg hover:bg-gray-100" onclick="toggleMobileMenu()">
-                    <i class="fas fa-bars text-gray-600"></i>
+                
+                <!-- Currency Selector -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <select x-model="selectedCurrency" @change="updateCurrency()" class="currency-selector rounded-lg px-3 py-2 text-sm font-medium text-white bg-gray-700 border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-500">
+                        <option value="ETB">🇪🇹 ETB</option>
+                        <option value="USD">🇺🇸 USD</option>
+                        <option value="EUR">🇪🇺 EUR</option>
+                        <option value="SAR">🇸🇦 SAR</option>
+                    </select>
+                    <button @click="currentPage = 'donate'" class="btn-primary text-white px-6 py-2 rounded-lg font-medium">
+                        Donate Now
+                    </button>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden p-2">
+                    <i class="fas fa-bars text-white"></i>
                 </button>
             </div>
-
+            
             <!-- Mobile Navigation -->
-            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-200">
-                <div class="flex flex-col space-y-2 mt-4">
-                    <a href="#" onclick="showPage('home')" class="nav-link">Home</a>
-                    <a href="#" onclick="showPage('about')" class="nav-link">About Us</a>
-                    <a href="#" onclick="showPage('programs')" class="nav-link">Programs</a>
-                    <a href="#" onclick="showPage('involve')" class="nav-link">Get Involved</a>
-                    <a href="#" onclick="showPage('contact')" class="nav-link">Contact</a>
-                    <a href="#" onclick="showPage('donate')" class="btn-primary mt-4">
-                        <i class="fas fa-heart"></i>
-                        Donate Now
-                    </a>
+            <div x-show="mobileMenuOpen" x-transition class="md:hidden bg-gray-800 border-t border-gray-700">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="#home" @click="currentPage = 'home'; mobileMenuOpen = false" class="block px-3 py-2 text-white hover:text-green-400">Home</a>
+                    <a href="#donate" @click="currentPage = 'donate'; mobileMenuOpen = false" class="block px-3 py-2 text-white hover:text-green-400">Donate Now</a>
+                    <a href="#programs" @click="currentPage = 'programs'; mobileMenuOpen = false" class="block px-3 py-2 text-white hover:text-green-400">Our Programs</a>
+                    <a href="#involved" @click="currentPage = 'involved'; mobileMenuOpen = false" class="block px-3 py-2 text-white hover:text-green-400">Get Involved</a>
+                    <a href="#about" @click="currentPage = 'about'; mobileMenuOpen = false" class="block px-3 py-2 text-white hover:text-green-400">About Us</a>
+                    <a href="#contact" @click="currentPage = 'contact'; mobileMenuOpen = false" class="block px-3 py-2 text-white hover:text-green-400">Contact</a>
+                    <div class="px-3 py-2">
+                        <select x-model="selectedCurrency" @change="updateCurrency()" class="w-full rounded-lg px-3 py-2 border border-gray-300">
+                            <option value="ETB">🇪🇹 Ethiopian Birr</option>
+                            <option value="USD">🇺🇸 US Dollar</option>
+                            <option value="EUR">🇪🇺 Euro</option>
+                            <option value="SAR">🇸🇦 Saudi Riyal</option>
+                        </select>
+                    </div>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Home Page -->
-    <div id="home-page" class="page-content">
-        <!-- Hero Section -->
-        <section class="hero-gradient text-white py-20">
-            <div class="container mx-auto px-6">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    <div class="text-center lg:text-left">
-                        <div class="inline-flex items-center gap-2 bg-white/20 rounded-full px-4 py-2 mb-6">
-                            <div class="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
-                            <span class="text-sm font-medium">Making a Difference Since 2024</span>
+    <!-- Main Content -->
+    <main class="pt-16">
+        <!-- Home Page -->
+        <div x-show="currentPage === 'home'" x-transition>
+            <!-- Hero Section -->
+            <section class="bg-green-600 hero-pattern min-h-screen flex items-center relative overflow-hidden" style="background: linear-gradient(135deg, #16a34a 0%, #15803d 100%)">
+                <div class="absolute inset-0 bg-black/20"></div>
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div class="text-white">
+                            <div class="animate-float">
+                                <h1 class="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
+                                    Making a <span class="text-yellow-300">Difference</span> in Ethiopia 🇪🇹
+                                </h1>
+                                <p class="text-xl lg:text-2xl mb-8 text-white/90 leading-relaxed">
+                                    Join Kuraa Galaan Charity Organization in transforming lives through education, healthcare, and community development across Ethiopia.
+                                </p>
+                                <div class="flex flex-col sm:flex-row gap-4">
+                                    <button @click="currentPage = 'donate'" class="btn-primary text-white px-8 py-4 rounded-xl font-bold text-lg">
+                                        <i class="fas fa-heart mr-2"></i>
+                                        Donate Now
+                                    </button>
+                                    <button @click="currentPage = 'programs'" class="btn-secondary text-white px-8 py-4 rounded-xl font-bold text-lg">
+                                        <i class="fas fa-info-circle mr-2"></i>
+                                        Learn More
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-
-                        <h1 class="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
-                            Empowering Communities,
-                            <span class="text-accent">Changing Lives</span>
-                        </h1>
-
-                        <p class="text-xl mb-8 opacity-90 leading-relaxed">
-                            Kuraa Galaan Charity Organization is dedicated to creating sustainable change 
-                            through education, healthcare, food security, and clean water initiatives 
-                            across Ethiopian communities.
-                        </p>
-
-                        <div class="flex flex-col sm:flex-row gap-4 mb-12">
-                            <a href="#" onclick="showPage('donate')" class="btn-secondary">
-                                <i class="fas fa-heart"></i>
-                                Donate Now
-                            </a>
-                            <a href="#" onclick="showPage('programs')" class="btn-outline text-white border-white hover:bg-white hover:text-primary">
-                                <i class="fas fa-arrow-right"></i>
-                                Our Programs
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="flex justify-center lg:justify-end">
+                        
                         <div class="relative">
-                            <div class="w-80 h-80 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-sm">
-                                <div class="w-64 h-64 bg-white/20 rounded-full flex items-center justify-center">
-                                    <div class="text-center">
-                                        <i class="fas fa-hands-helping text-6xl text-accent mb-4"></i>
-                                        <div class="text-2xl font-bold">Together</div>
-                                        <div class="text-lg opacity-90">We Can Make</div>
-                                        <div class="text-xl font-bold text-accent">A Difference</div>
+                            <div class="animate-pulse-slow">
+                                <div class="w-full h-96 bg-white/10 rounded-3xl backdrop-blur-sm border border-white/20 flex items-center justify-center">
+                                    <div class="text-center text-white">
+                                        <i class="fas fa-hands-helping text-8xl mb-4 text-yellow-300"></i>
+                                        <h3 class="text-2xl font-bold mb-2">Together We Can</h3>
+                                        <p class="text-lg">Build a Better Tomorrow</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Impact Statistics -->
-        <section class="py-16 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                    <div class="stats-card">
-                        <div class="impact-number">500+</div>
-                        <div class="text-lg font-semibold primary-color">Families Supported</div>
-                        <div class="text-gray-600">Through our programs</div>
-                    </div>
-                    <div class="stats-card">
-                        <div class="impact-number">1,200+</div>
-                        <div class="text-lg font-semibold primary-color">Children Educated</div>
-                        <div class="text-gray-600">Access to quality education</div>
-                    </div>
-                    <div class="stats-card">
-                        <div class="impact-number">15</div>
-                        <div class="text-lg font-semibold primary-color">Communities</div>
-                        <div class="text-gray-600">Across Ethiopia</div>
-                    </div>
-                    <div class="stats-card">
-                        <div class="impact-number">3</div>
-                        <div class="text-lg font-semibold primary-color">Years</div>
-                        <div class="text-gray-600">Of dedicated service</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Introduction -->
-        <section class="section-padding">
-            <div class="container mx-auto px-6">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h2 class="text-4xl font-bold mb-6 gradient-text">About Kuraa Galaan</h2>
-                        <p class="text-lg text-gray-700 mb-6">
-                            Founded with a vision to create lasting change, Kuraa Galaan Charity Organization 
-                            works tirelessly to address the most pressing challenges facing Ethiopian communities. 
-                            Our holistic approach focuses on sustainable development through education, healthcare, 
-                            nutrition, and infrastructure.
-                        </p>
-                        <p class="text-lg text-gray-700 mb-8">
-                            We believe that every person deserves access to basic necessities and opportunities 
-                            for growth. Through partnerships with local communities, we implement programs that 
-                            create lasting impact and empower individuals to build better futures.
-                        </p>
-                        <a href="#" onclick="showPage('about')" class="btn-primary">
-                            <i class="fas fa-arrow-right"></i>
-                            Learn More About Us
-                        </a>
-                    </div>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="card text-center">
-                            <i class="fas fa-graduation-cap text-4xl primary-color mb-4"></i>
-                            <h3 class="font-bold text-lg mb-2">Education</h3>
-                            <p class="text-gray-600">Building schools and providing scholarships</p>
+                
+                <!-- Floating Stats -->
+                <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 w-full max-w-4xl px-4">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 text-center text-white border border-white/20">
+                            <div class="text-3xl font-bold text-yellow-300" x-text="stats.totalDonations">1,250+</div>
+                            <div class="text-sm">Lives Impacted</div>
                         </div>
-                        <div class="card text-center">
-                            <i class="fas fa-heartbeat text-4xl primary-color mb-4"></i>
-                            <h3 class="font-bold text-lg mb-2">Healthcare</h3>
-                            <p class="text-gray-600">Medical clinics and health programs</p>
+                        <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 text-center text-white border border-white/20">
+                            <div class="text-3xl font-bold text-yellow-300" x-text="formatCurrency(stats.totalAmount)">$45,000+</div>
+                            <div class="text-sm">Funds Raised</div>
                         </div>
-                        <div class="card text-center">
-                            <i class="fas fa-utensils text-4xl primary-color mb-4"></i>
-                            <h3 class="font-bold text-lg mb-2">Nutrition</h3>
-                            <p class="text-gray-600">Food security and nutrition programs</p>
-                        </div>
-                        <div class="card text-center">
-                            <i class="fas fa-tint text-4xl primary-color mb-4"></i>
-                            <h3 class="font-bold text-lg mb-2">Clean Water</h3>
-                            <p class="text-gray-600">Wells and water purification systems</p>
+                        <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 text-center text-white border border-white/20">
+                            <div class="text-3xl font-bold text-yellow-300">15+</div>
+                            <div class="text-sm">Active Programs</div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Featured Projects -->
-        <section class="section-padding bg-light-gray">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl font-bold mb-6 gradient-text">Featured Projects</h2>
-                    <p class="text-xl text-gray-700 max-w-3xl mx-auto">
-                        See how your donations are making a real difference in communities across Ethiopia
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="card">
-                        <div class="w-full h-48 bg-secondary rounded-lg mb-6 flex items-center justify-center">
-                            <i class="fas fa-school text-6xl text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-4">Addis Ababa School Project</h3>
-                        <p class="text-gray-700 mb-4">
-                            Built a new primary school serving 300 children in underserved communities, 
-                            providing quality education and hope for the future.
-                        </p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-sm text-gray-600">Completed 2024</span>
-                            <span class="bg-accent text-text px-3 py-1 rounded-full text-sm font-semibold">Education</span>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="w-full h-48 bg-primary rounded-lg mb-6 flex items-center justify-center">
-                            <i class="fas fa-clinic-medical text-6xl text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-4">Rural Health Clinic</h3>
-                        <p class="text-gray-700 mb-4">
-                            Established a medical clinic providing healthcare services to over 1,000 
-                            residents in remote areas with limited access to medical care.
-                        </p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-sm text-gray-600">Ongoing</span>
-                            <span class="bg-accent text-text px-3 py-1 rounded-full text-sm font-semibold">Healthcare</span>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="w-full h-48 bg-accent rounded-lg mb-6 flex items-center justify-center">
-                            <i class="fas fa-water text-6xl text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-4">Clean Water Initiative</h3>
-                        <p class="text-gray-700 mb-4">
-                            Installed 5 water wells and purification systems, providing clean drinking 
-                            water to 800 families in drought-affected regions.
-                        </p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-sm text-gray-600">Completed 2023</span>
-                            <span class="bg-accent text-text px-3 py-1 rounded-full text-sm font-semibold">Water</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Call to Action -->
-        <section class="section-padding bg-primary text-white">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-4xl font-bold mb-6">Ready to Make a Difference?</h2>
-                <p class="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-                    Your donation, no matter the size, can help us continue our mission of 
-                    empowering communities and changing lives across Ethiopia.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="#" onclick="showPage('donate')" class="btn-secondary">
-                        <i class="fas fa-heart"></i>
-                        Donate Now
-                    </a>
-                    <a href="#" onclick="showPage('involve')" class="btn-outline text-white border-white hover:bg-white hover:text-primary">
-                        <i class="fas fa-hands-helping"></i>
-                        Volunteer With Us
-                    </a>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- About Us Page -->
-    <div id="about-page" class="page-content hidden">
-        <section class="section-padding">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h1 class="text-5xl font-bold mb-6 gradient-text">About Kuraa Galaan</h1>
-                    <p class="text-xl text-gray-700 max-w-3xl mx-auto">
-                        Dedicated to creating sustainable change and empowering communities across Ethiopia
-                    </p>
-                </div>
-
-                <!-- Mission, Vision, Values -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-                    <div class="card text-center">
-                        <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
-                            <i class="fas fa-bullseye text-2xl text-white"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4 primary-color">Our Mission</h3>
-                        <p class="text-gray-700">
-                            To empower Ethiopian communities through sustainable development programs 
-                            in education, healthcare, nutrition, and infrastructure, creating lasting 
-                            positive change for generations to come.
+            <!-- Impact Section -->
+            <section class="py-20 bg-gray-50">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl font-bold text-gray-800 mb-4">Our Impact in Numbers</h2>
+                        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                            Every donation creates ripples of positive change across Ethiopian communities
                         </p>
                     </div>
-
-                    <div class="card text-center">
-                        <div class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-6">
-                            <i class="fas fa-eye text-2xl text-white"></i>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div class="text-center p-8 bg-white rounded-2xl card-shadow">
+                            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-graduation-cap text-2xl text-blue-600"></i>
+                            </div>
+                            <div class="text-3xl font-bold text-gray-800 mb-2">500+</div>
+                            <div class="text-gray-600">Students Educated</div>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4 primary-color">Our Vision</h3>
-                        <p class="text-gray-700">
-                            A thriving Ethiopia where every individual has access to quality education, 
-                            healthcare, clean water, and nutritious food, enabling them to reach their 
-                            full potential and contribute to their communities.
+                        
+                        <div class="text-center p-8 bg-white rounded-2xl card-shadow">
+                            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-heartbeat text-2xl text-green-600"></i>
+                            </div>
+                            <div class="text-3xl font-bold text-gray-800 mb-2">1,200+</div>
+                            <div class="text-gray-600">Medical Treatments</div>
+                        </div>
+                        
+                        <div class="text-center p-8 bg-white rounded-2xl card-shadow">
+                            <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-home text-2xl text-purple-600"></i>
+                            </div>
+                            <div class="text-3xl font-bold text-gray-800 mb-2">75+</div>
+                            <div class="text-gray-600">Families Housed</div>
+                        </div>
+                        
+                        <div class="text-center p-8 bg-white rounded-2xl card-shadow">
+                            <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-utensils text-2xl text-orange-600"></i>
+                            </div>
+                            <div class="text-3xl font-bold text-gray-800 mb-2">2,500+</div>
+                            <div class="text-gray-600">Meals Provided</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Programs Preview -->
+            <section class="py-20 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl font-bold text-gray-800 mb-4">Our Programs</h2>
+                        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                            Comprehensive initiatives addressing the most pressing needs in Ethiopian communities
                         </p>
                     </div>
-
-                    <div class="card text-center">
-                        <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-6">
-                            <i class="fas fa-heart text-2xl text-white"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4 primary-color">Our Values</h3>
-                        <p class="text-gray-700">
-                            Compassion, transparency, sustainability, community partnership, and 
-                            cultural respect guide everything we do. We believe in empowering 
-                            local communities to lead their own development.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Leadership Message -->
-                <div class="card mb-16">
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                        <div>
-                            <h3 class="text-3xl font-bold mb-6 primary-color">Message from Our Leadership</h3>
-                            <p class="text-lg text-gray-700 mb-6">
-                                "At Kuraa Galaan, we believe that sustainable change comes from within communities. 
-                                Our role is to provide support, resources, and partnerships that enable local 
-                                leaders and families to create the change they want to see."
-                            </p>
-                            <p class="text-lg text-gray-700 mb-6">
-                                "Every project we undertake is designed with long-term impact in mind. We don't 
-                                just provide temporary relief – we build systems and capabilities that will 
-                                continue to benefit communities for years to come."
-                            </p>
-                            <div class="border-l-4 border-primary pl-6">
-                                <p class="font-semibold text-lg primary-color">Executive Director</p>
-                                <p class="text-gray-600">Kuraa Galaan Charity Organization</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="premium-card rounded-2xl p-8 card-shadow hover:card-shadow-hover transition-all duration-500">
+                            <div class="w-16 h-16 bg-gradient-to-br from-blue-800 to-indigo-700 rounded-full flex items-center justify-center mb-6 shadow-lg">
+                                <i class="fas fa-book text-2xl text-white"></i>
                             </div>
-                        </div>
-                        <div class="flex justify-center">
-                            <div class="w-80 h-80 bg-secondary rounded-full flex items-center justify-center">
-                                <div class="text-center text-white">
-                                    <i class="fas fa-users text-6xl mb-4"></i>
-                                    <div class="text-xl font-bold">Our Team</div>
-                                    <div class="text-lg">Dedicated Professionals</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Transparency Statement -->
-                <div class="bg-light-gray rounded-2xl p-8">
-                    <h3 class="text-3xl font-bold mb-6 text-center primary-color">Our Commitment to Transparency</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div>
-                            <h4 class="text-xl font-bold mb-4">Financial Accountability</h4>
-                            <ul class="space-y-3 text-gray-700">
-                                <li class="flex items-start">
-                                    <i class="fas fa-check primary-color mr-3 mt-1"></i>
-                                    Annual financial reports published publicly
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-check primary-color mr-3 mt-1"></i>
-                                    85% of donations go directly to programs
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-check primary-color mr-3 mt-1"></i>
-                                    Independent financial audits conducted yearly
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-check primary-color mr-3 mt-1"></i>
-                                    Detailed project impact reports available
-                                </li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 class="text-xl font-bold mb-4">Program Transparency</h4>
-                            <ul class="space-y-3 text-gray-700">
-                                <li class="flex items-start">
-                                    <i class="fas fa-check primary-color mr-3 mt-1"></i>
-                                    Regular updates on project progress
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-check primary-color mr-3 mt-1"></i>
-                                    Community feedback incorporated in planning
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-check primary-color mr-3 mt-1"></i>
-                                    Open communication with donors and stakeholders
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-check primary-color mr-3 mt-1"></i>
-                                    Measurable outcomes and impact metrics
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Programs Page -->
-    <div id="programs-page" class="page-content hidden">
-        <section class="section-padding">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h1 class="text-5xl font-bold mb-6 gradient-text">Our Programs</h1>
-                    <p class="text-xl text-gray-700 max-w-3xl mx-auto">
-                        Comprehensive initiatives addressing the most critical needs in Ethiopian communities
-                    </p>
-                </div>
-
-                <!-- Program Categories -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-                    <div class="card text-center">
-                        <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
-                            <i class="fas fa-graduation-cap text-3xl text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-4">Education</h3>
-                        <p class="text-gray-700 mb-4">Building schools, providing scholarships, and supporting teachers</p>
-                        <div class="text-2xl font-bold primary-color">8 Projects</div>
-                    </div>
-
-                    <div class="card text-center">
-                        <div class="w-20 h-20 bg-secondary rounded-full flex items-center justify-center mx-auto mb-6">
-                            <i class="fas fa-heartbeat text-3xl text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-4">Healthcare</h3>
-                        <p class="text-gray-700 mb-4">Medical clinics, health education, and preventive care</p>
-                        <div class="text-2xl font-bold primary-color">5 Projects</div>
-                    </div>
-
-                    <div class="card text-center">
-                        <div class="w-20 h-20 bg-accent rounded-full flex items-center justify-center mx-auto mb-6">
-                            <i class="fas fa-utensils text-3xl text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-4">Nutrition</h3>
-                        <p class="text-gray-700 mb-4">Food security programs and nutrition education</p>
-                        <div class="text-2xl font-bold primary-color">6 Projects</div>
-                    </div>
-
-                    <div class="card text-center">
-                        <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
-                            <i class="fas fa-tint text-3xl text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-4">Clean Water</h3>
-                        <p class="text-gray-700 mb-4">Wells, purification systems, and sanitation facilities</p>
-                        <div class="text-2xl font-bold primary-color">4 Projects</div>
-                    </div>
-                </div>
-
-                <!-- Ongoing Projects -->
-                <div class="mb-16">
-                    <h2 class="text-3xl font-bold mb-8 primary-color">Ongoing Projects</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div class="card">
-                            <div class="flex items-start justify-between mb-4">
-                                <h3 class="text-xl font-bold">Rural School Construction</h3>
-                                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">Active</span>
-                            </div>
-                            <p class="text-gray-700 mb-4">
-                                Building a new secondary school in Oromia region to serve 500 students. 
-                                The project includes classrooms, library, and science laboratory.
-                            </p>
-                            <div class="mb-4">
-                                <div class="flex justify-between text-sm mb-2">
-                                    <span>Progress</span>
-                                    <span>75%</span>
-                                </div>
-                                <div class="w-full bg-gray-200 rounded-full h-2">
-                                    <div class="bg-primary h-2 rounded-full" style="width: 75%"></div>
-                                </div>
-                            </div>
-                            <div class="flex items-center justify-between text-sm text-gray-600">
-                                <span>Expected completion: Dec 2024</span>
-                                <span class="bg-primary text-white px-2 py-1 rounded">Education</span>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <div class="flex items-start justify-between mb-4">
-                                <h3 class="text-xl font-bold">Mobile Health Clinic</h3>
-                                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">Active</span>
-                            </div>
-                            <p class="text-gray-700 mb-4">
-                                Providing healthcare services to remote communities through our mobile clinic program. 
-                                Serving 10 villages monthly with basic medical care and health education.
-                            </p>
-                            <div class="mb-4">
-                                <div class="flex justify-between text-sm mb-2">
-                                    <span>Monthly Reach</span>
-                                    <span>400 patients</span>
-                                </div>
-                                <div class="w-full bg-gray-200 rounded-full h-2">
-                                    <div class="bg-secondary h-2 rounded-full" style="width: 90%"></div>
-                                </div>
-                            </div>
-                            <div class="flex items-center justify-between text-sm text-gray-600">
-                                <span>Started: Jan 2024</span>
-                                <span class="bg-secondary text-white px-2 py-1 rounded">Healthcare</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Impact Statistics -->
-                <div class="bg-primary text-white rounded-2xl p-8 mb-16">
-                    <h2 class="text-3xl font-bold mb-8 text-center">Our Impact</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-                        <div>
-                            <div class="text-4xl font-bold text-accent mb-2">1,200+</div>
-                            <div class="text-lg">Students Educated</div>
-                        </div>
-                        <div>
-                            <div class="text-4xl font-bold text-accent mb-2">2,500+</div>
-                            <div class="text-lg">Patients Treated</div>
-                        </div>
-                        <div>
-                            <div class="text-4xl font-bold text-accent mb-2">800</div>
-                            <div class="text-lg">Families with Clean Water</div>
-                        </div>
-                        <div>
-                            <div class="text-4xl font-bold text-accent mb-2">500+</div>
-                            <div class="text-lg">Children Fed Daily</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Completed Projects -->
-                <div>
-                    <h2 class="text-3xl font-bold mb-8 primary-color">Completed Projects</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div class="card">
-                            <div class="w-full h-40 bg-primary rounded-lg mb-4 flex items-center justify-center">
-                                <i class="fas fa-school text-4xl text-white"></i>
-                            </div>
-                            <h3 class="text-lg font-bold mb-2">Addis Ababa Primary School</h3>
-                            <p class="text-gray-700 text-sm mb-3">
-                                Completed construction of 8-classroom school serving 300 children
-                            </p>
-                            <div class="text-xs text-gray-600">Completed: March 2024</div>
-                        </div>
-
-                        <div class="card">
-                            <div class="w-full h-40 bg-secondary rounded-lg mb-4 flex items-center justify-center">
-                                <i class="fas fa-water text-4xl text-white"></i>
-                            </div>
-                            <h3 class="text-lg font-bold mb-2">Tigray Water Wells</h3>
-                            <p class="text-gray-700 text-sm mb-3">
-                                Installed 3 deep water wells providing clean water to 600 people
-                            </p>
-                            <div class="text-xs text-gray-600">Completed: January 2024</div>
-                        </div>
-
-                        <div class="card">
-                            <div class="w-full h-40 bg-accent rounded-lg mb-4 flex items-center justify-center">
-                                <i class="fas fa-clinic-medical text-4xl text-white"></i>
-                            </div>
-                            <h3 class="text-lg font-bold mb-2">Amhara Health Center</h3>
-                            <p class="text-gray-700 text-sm mb-3">
-                                Established health center with maternity ward and pharmacy
-                            </p>
-                            <div class="text-xs text-gray-600">Completed: November 2023</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Get Involved Page -->
-    <div id="involve-page" class="page-content hidden">
-        <section class="section-padding">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h1 class="text-5xl font-bold mb-6 gradient-text">Get Involved</h1>
-                    <p class="text-xl text-gray-700 max-w-3xl mx-auto">
-                        Join us in making a difference. There are many ways to support our mission and help Ethiopian communities thrive.
-                    </p>
-                </div>
-
-                <!-- Ways to Get Involved -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-                    <div class="card text-center">
-                        <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
-                            <i class="fas fa-hands-helping text-3xl text-white"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4">Volunteer</h3>
-                        <p class="text-gray-700 mb-6">
-                            Join our team of dedicated volunteers and contribute your skills to make a direct impact on communities.
-                        </p>
-                        <a href="#volunteer-form" onclick="scrollToElement('volunteer-form')" class="btn-primary">
-                            <i class="fas fa-user-plus"></i>
-                            Sign Up to Volunteer
-                        </a>
-                    </div>
-
-                    <div class="card text-center">
-                        <div class="w-20 h-20 bg-secondary rounded-full flex items-center justify-center mx-auto mb-6">
-                            <i class="fas fa-handshake text-3xl text-white"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4">Partner</h3>
-                        <p class="text-gray-700 mb-6">
-                            Organizations and businesses can partner with us to amplify our impact and reach more communities.
-                        </p>
-                        <a href="#partnership-info" onclick="scrollToElement('partnership-info')" class="btn-primary">
-                            <i class="fas fa-building"></i>
-                            Partnership Info
-                        </a>
-                    </div>
-
-                    <div class="card text-center">
-                        <div class="w-20 h-20 bg-accent rounded-full flex items-center justify-center mx-auto mb-6">
-                            <i class="fas fa-calendar-alt text-3xl text-white"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4">Attend Events</h3>
-                        <p class="text-gray-700 mb-6">
-                            Join our fundraising events, awareness campaigns, and community gatherings throughout the year.
-                        </p>
-                        <a href="#events" onclick="scrollToElement('events')" class="btn-primary">
-                            <i class="fas fa-ticket-alt"></i>
-                            View Events
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Volunteer Sign-up Form -->
-                <div id="volunteer-form" class="card mb-16">
-                    <h2 class="text-3xl font-bold mb-8 text-center primary-color">Volunteer Sign-Up</h2>
-                    <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-sm font-semibold mb-2">Full Name *</label>
-                            <input type="text" class="form-input" required>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-semibold mb-2">Email Address *</label>
-                            <input type="email" class="form-input" required>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-semibold mb-2">Phone Number</label>
-                            <input type="tel" class="form-input">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-semibold mb-2">Preferred Area</label>
-                            <select class="form-input">
-                                <option>Education</option>
-                                <option>Healthcare</option>
-                                <option>Nutrition</option>
-                                <option>Clean Water</option>
-                                <option>Administration</option>
-                                <option>Fundraising</option>
-                            </select>
-                        </div>
-                        <div class="md:col-span-2">
-                            <label class="block text-sm font-semibold mb-2">Skills & Experience</label>
-                            <textarea rows="4" class="form-input" placeholder="Tell us about your relevant skills and experience..."></textarea>
-                        </div>
-                        <div class="md:col-span-2">
-                            <label class="block text-sm font-semibold mb-2">Availability</label>
-                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                                <label class="flex items-center">
-                                    <input type="checkbox" class="mr-2">
-                                    Weekdays
-                                </label>
-                                <label class="flex items-center">
-                                    <input type="checkbox" class="mr-2">
-                                    Weekends
-                                </label>
-                                <label class="flex items-center">
-                                    <input type="checkbox" class="mr-2">
-                                    Evenings
-                                </label>
-                                <label class="flex items-center">
-                                    <input type="checkbox" class="mr-2">
-                                    Flexible
-                                </label>
-                            </div>
-                        </div>
-                        <div class="md:col-span-2 text-center">
-                            <button type="submit" class="btn-primary">
-                                <i class="fas fa-paper-plane"></i>
-                                Submit Application
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">Education Support</h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">Providing quality education, school supplies, and scholarships to underprivileged children across Ethiopia.</p>
+                            <button @click="currentPage = 'programs'" class="text-blue-800 font-semibold hover:text-indigo-700 transition-colors duration-300">
+                                Learn More <i class="fas fa-arrow-right ml-1"></i>
                             </button>
                         </div>
-                    </form>
-                </div>
-
-                <!-- Partnership Opportunities -->
-                <div id="partnership-info" class="bg-light-gray rounded-2xl p-8 mb-16">
-                    <h2 class="text-3xl font-bold mb-8 text-center primary-color">Partnership Opportunities</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div>
-                            <h3 class="text-xl font-bold mb-4">Corporate Partnerships</h3>
-                            <ul class="space-y-3 text-gray-700">
-                                <li class="flex items-start">
-                                    <i class="fas fa-check primary-color mr-3 mt-1"></i>
-                                    Employee volunteer programs
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-check primary-color mr-3 mt-1"></i>
-                                    Corporate social responsibility initiatives
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-check primary-color mr-3 mt-1"></i>
-                                    Matching gift programs
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-check primary-color mr-3 mt-1"></i>
-                                    Sponsored project opportunities
-                                </li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold mb-4">NGO Collaborations</h3>
-                            <ul class="space-y-3 text-gray-700">
-                                <li class="flex items-start">
-                                    <i class="fas fa-check primary-color mr-3 mt-1"></i>
-                                    Joint project implementation
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-check primary-color mr-3 mt-1"></i>
-                                    Resource sharing and coordination
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-check primary-color mr-3 mt-1"></i>
-                                    Knowledge exchange programs
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-check primary-color mr-3 mt-1"></i>
-                                    Advocacy and policy initiatives
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="text-center mt-8">
-                        <a href="mailto:kuraagalaan2024@gmail.com" class="btn-primary">
-                            <i class="fas fa-envelope"></i>
-                            Contact for Partnerships
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Upcoming Events -->
-                <div id="events">
-                    <h2 class="text-3xl font-bold mb-8 primary-color">Upcoming Events</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div class="card">
-                            <div class="flex items-start justify-between mb-4">
-                                <div>
-                                    <h3 class="text-xl font-bold">Annual Fundraising Gala</h3>
-                                    <p class="text-gray-600">December 15, 2024</p>
-                                </div>
-                                <span class="bg-accent text-text px-3 py-1 rounded-full text-sm font-semibold">Fundraising</span>
-                            </div>
-                            <p class="text-gray-700 mb-4">
-                                Join us for an evening of celebration, inspiration, and fundraising to support our 2025 initiatives. 
-                                Featuring dinner, entertainment, and stories from the communities we serve.
-                            </p>
-                            <div class="flex items-center justify-between">
-                                <span class="text-sm text-gray-600">Addis Ababa Hilton</span>
-                                <button class="btn-outline">
-                                    <i class="fas fa-ticket-alt"></i>
-                                    Get Tickets
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <div class="flex items-start justify-between mb-4">
-                                <div>
-                                    <h3 class="text-xl font-bold">Community Health Workshop</h3>
-                                    <p class="text-gray-600">January 20, 2025</p>
-                                </div>
-                                <span class="bg-secondary text-white px-3 py-1 rounded-full text-sm font-semibold">Education</span>
-                            </div>
-                            <p class="text-gray-700 mb-4">
-                                Free workshop for community health workers and volunteers. Learn about preventive care, 
-                                basic medical procedures, and health education techniques.
-                            </p>
-                            <div class="flex items-center justify-between">
-                                <span class="text-sm text-gray-600">Kuraa Galaan Office</span>
-                                <button class="btn-outline">
-                                    <i class="fas fa-user-plus"></i>
-                                    Register
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Donate Page -->
-    <div id="donate-page" class="page-content hidden">
-        <section class="section-padding">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h1 class="text-5xl font-bold mb-6 gradient-text">Make a Donation</h1>
-                    <p class="text-xl text-gray-700 max-w-3xl mx-auto">
-                        Your generosity helps us continue our mission of empowering Ethiopian communities. 
-                        Every donation, no matter the size, makes a real difference.
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                    <!-- Donation Form -->
-                    <div class="card">
-                        <h2 class="text-2xl font-bold mb-6 primary-color">Online Donation</h2>
                         
-                        <!-- Donation Amounts -->
-                        <div class="mb-6">
-                            <label class="block text-sm font-semibold mb-4">Select Amount (ETB)</label>
-                            <div class="grid grid-cols-3 gap-4 mb-4">
-                                <button class="donation-amount" onclick="selectAmount(500)">500</button>
-                                <button class="donation-amount" onclick="selectAmount(1000)">1,000</button>
-                                <button class="donation-amount" onclick="selectAmount(2500)">2,500</button>
-                                <button class="donation-amount" onclick="selectAmount(5000)">5,000</button>
-                                <button class="donation-amount" onclick="selectAmount(10000)">10,000</button>
-                                <button class="donation-amount" onclick="selectAmount('custom')">Custom</button>
+                        <div class="premium-card rounded-2xl p-8 card-shadow hover:card-shadow-hover transition-all duration-500">
+                            <div class="w-16 h-16 bg-gradient-to-br from-blue-800 to-indigo-700 rounded-full flex items-center justify-center mb-6 shadow-lg">
+                                <i class="fas fa-stethoscope text-2xl text-white"></i>
                             </div>
-                            <input type="number" id="custom-amount" class="form-input hidden" placeholder="Enter custom amount">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">Healthcare Access</h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">Mobile clinics, medical supplies, and health education programs reaching remote communities.</p>
+                            <button @click="currentPage = 'programs'" class="text-blue-800 font-semibold hover:text-indigo-700 transition-colors duration-300">
+                                Learn More <i class="fas fa-arrow-right ml-1"></i>
+                            </button>
                         </div>
-
-                        <!-- Donation Type -->
-                        <div class="mb-6">
-                            <label class="block text-sm font-semibold mb-4">Donation Type</label>
-                            <div class="grid grid-cols-2 gap-4">
-                                <label class="flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-primary">
-                                    <input type="radio" name="donation-type" value="one-time" class="mr-3" checked>
-                                    <div>
-                                        <div class="font-semibold">One-time</div>
-                                        <div class="text-sm text-gray-600">Single donation</div>
-                                    </div>
-                                </label>
-                                <label class="flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-primary">
-                                    <input type="radio" name="donation-type" value="monthly" class="mr-3">
-                                    <div>
-                                        <div class="font-semibold">Monthly</div>
-                                        <div class="text-sm text-gray-600">Recurring donation</div>
-                                    </div>
-                                </label>
+                        
+                        <div class="premium-card rounded-2xl p-8 card-shadow hover:card-shadow-hover transition-all duration-500">
+                            <div class="w-16 h-16 bg-gradient-to-br from-blue-800 to-indigo-700 rounded-full flex items-center justify-center mb-6 shadow-lg">
+                                <i class="fas fa-seedling text-2xl text-white"></i>
                             </div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">Community Development</h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">Clean water projects, agricultural training, and sustainable development initiatives.</p>
+                            <button @click="currentPage = 'programs'" class="text-blue-800 font-semibold hover:text-indigo-700 transition-colors duration-300">
+                                Learn More <i class="fas fa-arrow-right ml-1"></i>
+                            </button>
                         </div>
-
-                        <!-- Donor Information -->
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                            <div>
-                                <label class="block text-sm font-semibold mb-2">Full Name *</label>
-                                <input type="text" class="form-input" required>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-semibold mb-2">Email Address *</label>
-                                <input type="email" class="form-input" required>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-semibold mb-2">Phone Number</label>
-                                <input type="tel" class="form-input">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-semibold mb-2">Country</label>
-                                <select class="form-input">
-                                    <option>Ethiopia</option>
-                                    <option>United States</option>
-                                    <option>Canada</option>
-                                    <option>United Kingdom</option>
-                                    <option>Other</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <!-- Payment Method -->
-                        <div class="mb-6">
-                            <label class="block text-sm font-semibold mb-4">Payment Method</label>
-                            <div class="space-y-3">
-                                <label class="flex items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-primary">
-                                    <input type="radio" name="payment-method" value="chapa" class="mr-3" checked>
-                                    <i class="fas fa-credit-card text-primary mr-3"></i>
-                                    <span>Chapa (Ethiopian Payment Gateway)</span>
-                                </label>
-                                <label class="flex items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-primary">
-                                    <input type="radio" name="payment-method" value="paypal" class="mr-3">
-                                    <i class="fab fa-paypal text-blue-600 mr-3"></i>
-                                    <span>PayPal (International)</span>
-                                </label>
-                                <label class="flex items-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-primary">
-                                    <input type="radio" name="payment-method" value="bank" class="mr-3">
-                                    <i class="fas fa-university text-primary mr-3"></i>
-                                    <span>Bank Transfer</span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <button type="submit" class="btn-primary w-full justify-center">
-                            <i class="fas fa-heart"></i>
-                            Donate Now
-                        </button>
                     </div>
+                </div>
+            </section>
+        </div>
 
-                    <!-- Donation Impact & Bank Details -->
-                    <div class="space-y-8">
-                        <!-- Impact Information -->
-                        <div class="card">
-                            <h3 class="text-2xl font-bold mb-6 primary-color">Your Impact</h3>
-                            <div class="space-y-4">
-                                <div class="flex items-center p-4 bg-light-gray rounded-lg">
-                                    <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mr-4">
-                                        <i class="fas fa-book text-white"></i>
-                                    </div>
-                                    <div>
-                                        <div class="font-semibold">500 ETB</div>
-                                        <div class="text-sm text-gray-600">Provides school supplies for 1 child for a year</div>
-                                    </div>
+        <!-- Donate Page -->
+        <div x-show="currentPage === 'donate'" x-transition>
+            <section class="gradient-bg hero-pattern py-20">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center text-white mb-12">
+                        <h1 class="text-5xl font-bold mb-4">Make a Donation</h1>
+                        <p class="text-xl text-white/90">Your generosity transforms lives across Ethiopia 🇪🇹</p>
+                    </div>
+                    
+                    <div class="donation-card rounded-3xl p-8 card-shadow">
+                        <form @submit.prevent="submitDonation()" class="space-y-6">
+                            <!-- Personal Information -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
+                                    <input x-model="donationForm.name" type="text" required 
+                                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-800 focus:border-transparent">
                                 </div>
-                                <div class="flex items-center p-4 bg-light-gray rounded-lg">
-                                    <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center mr-4">
-                                        <i class="fas fa-stethoscope text-white"></i>
-                                    </div>
-                                    <div>
-                                        <div class="font-semibold">1,000 ETB</div>
-                                        <div class="text-sm text-gray-600">Covers basic medical care for 1 family</div>
-                                    </div>
-                                </div>
-                                <div class="flex items-center p-4 bg-light-gray rounded-lg">
-                                    <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center mr-4">
-                                        <i class="fas fa-utensils text-white"></i>
-                                    </div>
-                                    <div>
-                                        <div class="font-semibold">2,500 ETB</div>
-                                        <div class="text-sm text-gray-600">Provides nutritious meals for 1 child for 3 months</div>
-                                    </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                                    <input x-model="donationForm.email" type="email" 
+                                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-800 focus:border-transparent">
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- Bank Transfer Details -->
-                        <div class="card">
-                            <h3 class="text-2xl font-bold mb-6 primary-color">Bank Transfer Details</h3>
-                            <div class="space-y-4">
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                                <input x-model="donationForm.phone" type="tel" 
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-800 focus:border-transparent">
+                            </div>
+                            
+                            <!-- Currency and Amount -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
-                                    <label class="text-sm font-semibold text-gray-600">Bank Name</label>
-                                    <div class="font-semibold">Commercial Bank of Ethiopia</div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Currency</label>
+                                    <select x-model="donationForm.currency" @change="updateDonationCurrency()" 
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-800 focus:border-transparent">
+                                        <option value="ETB">🇪🇹 Ethiopian Birr (ETB)</option>
+                                        <option value="USD">🇺🇸 US Dollar (USD)</option>
+                                        <option value="EUR">🇪🇺 Euro (EUR)</option>
+                                        <option value="SAR">🇸🇦 Saudi Riyal (SAR)</option>
+                                    </select>
                                 </div>
                                 <div>
-                                    <label class="text-sm font-semibold text-gray-600">Account Name</label>
-                                    <div class="font-semibold">Kuraa Galaan Charity Organization</div>
-                                </div>
-                                <div>
-                                    <label class="text-sm font-semibold text-gray-600">Account Number</label>
-                                    <div class="font-semibold">1000123456789</div>
-                                </div>
-                                <div>
-                                    <label class="text-sm font-semibold text-gray-600">Swift Code</label>
-                                    <div class="font-semibold">CBETETAA</div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Amount *</label>
+                                    <input x-model="donationForm.amount" type="number" min="1" step="0.01" required 
+                                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-800 focus:border-transparent"
+                                           :placeholder="getAmountPlaceholder()">
                                 </div>
                             </div>
-                            <div class="mt-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-                                <p class="text-sm text-yellow-800">
+                            
+                            <!-- Quick Amount Buttons -->
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                                <template x-for="amount in getQuickAmounts()" :key="amount">
+                                    <button type="button" @click="donationForm.amount = amount" 
+                                            class="py-3 px-4 border-2 border-gray-300 rounded-lg hover:border-blue-800 hover:bg-blue-50 transition-all"
+                                            :class="donationForm.amount == amount ? 'border-blue-800 bg-blue-50' : ''">
+                                        <span x-text="formatCurrency(amount, donationForm.currency)"></span>
+                                    </button>
+                                </template>
+                            </div>
+                            
+                            <!-- Payment Method -->
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-4">Payment Method *</label>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    <template x-for="method in getPaymentMethods()" :key="method.id">
+                                        <label class="relative">
+                                            <input x-model="donationForm.method" :value="method.id" type="radio" name="payment_method" required
+                                                   class="sr-only">
+                                            <div class="p-4 border-2 rounded-lg cursor-pointer transition-all hover:border-blue-800"
+                                                 :class="donationForm.method === method.id ? 'border-blue-800 bg-blue-50' : 'border-gray-300'">
+                                                <div class="text-center">
+                                                    <i :class="method.icon" class="text-2xl mb-2"></i>
+                                                    <div class="font-medium" x-text="method.name"></div>
+                                                    <div class="text-sm text-gray-500" x-text="method.description"></div>
+                                                </div>
+                                            </div>
+                                        </label>
+                                    </template>
+                                </div>
+                            </div>
+                            
+                            <!-- Conversion Info -->
+                            <div x-show="donationForm.currency !== 'ETB' && donationForm.amount" 
+                                 class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                                <div class="flex items-center text-blue-800">
                                     <i class="fas fa-info-circle mr-2"></i>
-                                    Please email us at kuraagalaan2024@gmail.com with your transfer receipt for proper acknowledgment.
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Security Notice -->
-                        <div class="card">
-                            <h3 class="text-xl font-bold mb-4 primary-color">Secure Donations</h3>
-                            <div class="space-y-3 text-sm text-gray-700">
-                                <div class="flex items-center">
-                                    <i class="fas fa-shield-alt text-green-600 mr-3"></i>
-                                    <span>SSL encrypted secure payment processing</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <i class="fas fa-receipt text-green-600 mr-3"></i>
-                                    <span>Tax-deductible receipts provided</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <i class="fas fa-eye-slash text-green-600 mr-3"></i>
-                                    <span>Your personal information is never shared</span>
+                                    <span>Conversion: </span>
+                                    <span x-text="formatCurrency(donationForm.amount, donationForm.currency)"></span>
+                                    <span class="mx-2">≈</span>
+                                    <span x-text="formatCurrency(convertToETB(donationForm.amount, donationForm.currency), 'ETB')"></span>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Contact Page -->
-    <div id="contact-page" class="page-content hidden">
-        <section class="section-padding">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h1 class="text-5xl font-bold mb-6 gradient-text">Contact Us</h1>
-                    <p class="text-xl text-gray-700 max-w-3xl mx-auto">
-                        Get in touch with us. We'd love to hear from you and answer any questions you may have.
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                    <!-- Contact Form -->
-                    <div class="card">
-                        <h2 class="text-2xl font-bold mb-6 primary-color">Send us a Message</h2>
-                        <form class="space-y-6">
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div>
-                                    <label class="block text-sm font-semibold mb-2">First Name *</label>
-                                    <input type="text" class="form-input" required>
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-semibold mb-2">Last Name *</label>
-                                    <input type="text" class="form-input" required>
-                                </div>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-semibold mb-2">Email Address *</label>
-                                <input type="email" class="form-input" required>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-semibold mb-2">Phone Number</label>
-                                <input type="tel" class="form-input">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-semibold mb-2">Subject *</label>
-                                <select class="form-input" required>
-                                    <option value="">Select a subject</option>
-                                    <option>General Inquiry</option>
-                                    <option>Volunteer Opportunities</option>
-                                    <option>Partnership</option>
-                                    <option>Donation Question</option>
-                                    <option>Media Inquiry</option>
-                                    <option>Other</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-semibold mb-2">Message *</label>
-                                <textarea rows="6" class="form-input" placeholder="Tell us how we can help you..." required></textarea>
-                            </div>
-                            <button type="submit" class="btn-primary w-full justify-center">
-                                <i class="fas fa-paper-plane"></i>
-                                Send Message
+                            
+                            <!-- Submit Button -->
+                            <button type="submit" :disabled="donationLoading" 
+                                    class="w-full btn-primary text-white py-4 rounded-xl font-bold text-lg disabled:opacity-50 disabled:cursor-not-allowed">
+                                <template x-if="donationLoading">
+                                    <div class="flex items-center justify-center">
+                                        <div class="loading-spinner mr-2"></div>
+                                        Processing...
+                                    </div>
+                                </template>
+                                <template x-if="!donationLoading">
+                                    <span>
+                                        <i class="fas fa-heart mr-2"></i>
+                                        Donate <span x-text="formatCurrency(donationForm.amount || 0, donationForm.currency)"></span>
+                                    </span>
+                                </template>
                             </button>
                         </form>
                     </div>
+                </div>
+            </section>
+        </div>
 
-                    <!-- Contact Information -->
-                    <div class="space-y-8">
-                        <!-- Contact Details -->
-                        <div class="card">
-                            <h3 class="text-2xl font-bold mb-6 primary-color">Get in Touch</h3>
-                            <div class="space-y-6">
-                                <div class="flex items-start">
-                                    <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                                        <i class="fas fa-envelope text-white"></i>
-                                    </div>
-                                    <div>
-                                        <div class="font-semibold mb-1">Email</div>
-                                        <a href="mailto:kuraagalaan2024@gmail.com" class="text-primary hover:underline">
-                                            kuraagalaan2024@gmail.com
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="flex items-start">
-                                    <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                                        <i class="fas fa-phone text-white"></i>
-                                    </div>
-                                    <div>
-                                        <div class="font-semibold mb-1">Phone</div>
-                                        <a href="tel:+251948528685" class="text-primary hover:underline">
-                                            +251 948 528 685
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="flex items-start">
-                                    <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                                        <i class="fas fa-map-marker-alt text-white"></i>
-                                    </div>
-                                    <div>
-                                        <div class="font-semibold mb-1">Office Address</div>
-                                        <div class="text-gray-700">
-                                            Addis Ababa, Ethiopia<br>
-                                            (Specific address available upon request)
-                                        </div>
-                                    </div>
-                                </div>
+        <!-- Programs Page -->
+        <div x-show="currentPage === 'programs'" x-transition>
+            <section class="gradient-bg hero-pattern py-20">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+                    <h1 class="text-5xl font-bold mb-4">Our Programs</h1>
+                    <p class="text-xl text-white/90 max-w-3xl mx-auto">
+                        Comprehensive initiatives designed to address the most pressing needs in Ethiopian communities
+                    </p>
+                </div>
+            </section>
+            
+            <section class="py-20 bg-gray-50">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+                        <div class="bg-white rounded-2xl p-8 card-shadow">
+                            <div class="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center mb-6">
+                                <i class="fas fa-graduation-cap text-3xl text-white"></i>
                             </div>
-                        </div>
-
-                        <!-- Office Hours -->
-                        <div class="card">
-                            <h3 class="text-xl font-bold mb-4 primary-color">Office Hours</h3>
-                            <div class="space-y-2 text-gray-700">
-                                <div class="flex justify-between">
-                                    <span>Monday - Friday</span>
-                                    <span class="font-semibold">8:00 AM - 5:00 PM</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span>Saturday</span>
-                                    <span class="font-semibold">9:00 AM - 2:00 PM</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span>Sunday</span>
-                                    <span class="font-semibold">Closed</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Social Media -->
-                        <div class="card">
-                            <h3 class="text-xl font-bold mb-4 primary-color">Follow Us</h3>
-                            <div class="flex space-x-4">
-                                <a href="#" class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition-colors">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a href="#" class="w-12 h-12 bg-blue-400 rounded-full flex items-center justify-center text-white hover:bg-blue-500 transition-colors">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a href="#" class="w-12 h-12 bg-pink-600 rounded-full flex items-center justify-center text-white hover:bg-pink-700 transition-colors">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a href="#" class="w-12 h-12 bg-blue-800 rounded-full flex items-center justify-center text-white hover:bg-blue-900 transition-colors">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Emergency Contact -->
-                        <div class="card bg-red-50 border border-red-200">
-                            <h3 class="text-xl font-bold mb-4 text-red-800">Emergency Contact</h3>
-                            <p class="text-red-700 mb-4">
-                                For urgent matters or emergency situations in our project areas, 
-                                please call our emergency hotline:
+                            <h2 class="text-3xl font-bold text-gray-800 mb-4">Education Support Program</h2>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                Our education program focuses on providing quality education opportunities to underprivileged children across Ethiopia. We believe education is the foundation for breaking the cycle of poverty.
                             </p>
-                            <a href="tel:+251948528685" class="btn-primary bg-red-600 hover:bg-red-700">
-                                <i class="fas fa-phone"></i>
-                                Emergency Hotline
-                            </a>
+                            <ul class="space-y-3 mb-6">
+                                <li class="flex items-center text-gray-700">
+                                    <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                    School supplies and uniforms for 500+ students
+                                </li>
+                                <li class="flex items-center text-gray-700">
+                                    <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                    Scholarship programs for higher education
+                                </li>
+                                <li class="flex items-center text-gray-700">
+                                    <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                    Teacher training and support programs
+                                </li>
+                                <li class="flex items-center text-gray-700">
+                                    <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                    Digital literacy and computer labs
+                                </li>
+                            </ul>
+                            <button @click="currentPage = 'donate'" class="btn-primary text-white px-6 py-3 rounded-lg font-medium">
+                                Support Education
+                            </button>
+                        </div>
+                        
+                        <div class="bg-white rounded-2xl p-8 card-shadow">
+                            <div class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mb-6">
+                                <i class="fas fa-heartbeat text-3xl text-white"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-800 mb-4">Healthcare Access Program</h2>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                We provide essential healthcare services to remote and underserved communities through mobile clinics, health education, and medical supply distribution.
+                            </p>
+                            <ul class="space-y-3 mb-6">
+                                <li class="flex items-center text-gray-700">
+                                    <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                    Mobile medical clinics serving rural areas
+                                </li>
+                                <li class="flex items-center text-gray-700">
+                                    <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                    Maternal and child health programs
+                                </li>
+                                <li class="flex items-center text-gray-700">
+                                    <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                    Vaccination and immunization campaigns
+                                </li>
+                                <li class="flex items-center text-gray-700">
+                                    <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                    Health education and awareness programs
+                                </li>
+                            </ul>
+                            <button @click="currentPage = 'donate'" class="btn-primary text-white px-6 py-3 rounded-lg font-medium">
+                                Support Healthcare
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                        <div class="bg-white rounded-2xl p-8 card-shadow">
+                            <div class="w-20 h-20 bg-purple-500 rounded-full flex items-center justify-center mb-6">
+                                <i class="fas fa-seedling text-3xl text-white"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-800 mb-4">Community Development</h2>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                Sustainable development projects that empower communities to become self-sufficient and resilient, focusing on infrastructure and economic opportunities.
+                            </p>
+                            <ul class="space-y-3 mb-6">
+                                <li class="flex items-center text-gray-700">
+                                    <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                    Clean water well construction projects
+                                </li>
+                                <li class="flex items-center text-gray-700">
+                                    <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                    Agricultural training and modern farming
+                                </li>
+                                <li class="flex items-center text-gray-700">
+                                    <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                    Microfinance and small business support
+                                </li>
+                                <li class="flex items-center text-gray-700">
+                                    <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                    Infrastructure development projects
+                                </li>
+                            </ul>
+                            <button @click="currentPage = 'donate'" class="btn-primary text-white px-6 py-3 rounded-lg font-medium">
+                                Support Development
+                            </button>
+                        </div>
+                        
+                        <div class="bg-white rounded-2xl p-8 card-shadow">
+                            <div class="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center mb-6">
+                                <i class="fas fa-utensils text-3xl text-white"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-800 mb-4">Emergency Relief</h2>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                Rapid response programs providing immediate assistance during natural disasters, conflicts, and humanitarian crises affecting Ethiopian communities.
+                            </p>
+                            <ul class="space-y-3 mb-6">
+                                <li class="flex items-center text-gray-700">
+                                    <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                    Emergency food distribution programs
+                                </li>
+                                <li class="flex items-center text-gray-700">
+                                    <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                    Temporary shelter and housing assistance
+                                </li>
+                                <li class="flex items-center text-gray-700">
+                                    <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                    Medical emergency response teams
+                                </li>
+                                <li class="flex items-center text-gray-700">
+                                    <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                    Disaster preparedness training
+                                </li>
+                            </ul>
+                            <button @click="currentPage = 'donate'" class="btn-primary text-white px-6 py-3 rounded-lg font-medium">
+                                Support Relief
+                            </button>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-    </div>
+            </section>
+        </div>
+
+        <!-- Get Involved Page -->
+        <div x-show="currentPage === 'involved'" x-transition>
+            <section class="gradient-bg hero-pattern py-20">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+                    <h1 class="text-5xl font-bold mb-4">Get Involved</h1>
+                    <p class="text-xl text-white/90 max-w-3xl mx-auto">
+                        Join our mission to transform lives across Ethiopia. There are many ways to make a difference!
+                    </p>
+                </div>
+            </section>
+            
+            <section class="py-20 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="text-center p-8 bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl card-shadow">
+                            <div class="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <i class="fas fa-hands-helping text-3xl text-white"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">Volunteer</h3>
+                            <p class="text-gray-600 mb-6">
+                                Join our team of dedicated volunteers and contribute your skills to make a direct impact in Ethiopian communities.
+                            </p>
+                            <ul class="text-left space-y-2 mb-6 text-gray-700">
+                                <li><i class="fas fa-check text-blue-500 mr-2"></i>Field work opportunities</li>
+                                <li><i class="fas fa-check text-blue-500 mr-2"></i>Remote volunteer positions</li>
+                                <li><i class="fas fa-check text-blue-500 mr-2"></i>Professional skill sharing</li>
+                                <li><i class="fas fa-check text-blue-500 mr-2"></i>Event organization</li>
+                            </ul>
+                            <button @click="currentPage = 'contact'" class="btn-secondary text-white px-6 py-3 rounded-lg font-medium">
+                                Apply to Volunteer
+                            </button>
+                        </div>
+                        
+                        <div class="text-center p-8 bg-gradient-to-br from-green-50 to-green-100 rounded-2xl card-shadow">
+                            <div class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <i class="fas fa-share-alt text-3xl text-white"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">Spread Awareness</h3>
+                            <p class="text-gray-600 mb-6">
+                                Help us reach more people by sharing our mission and programs with your network and community.
+                            </p>
+                            <ul class="text-left space-y-2 mb-6 text-gray-700">
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>Social media campaigns</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>Community presentations</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>Fundraising events</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>Ambassador program</li>
+                            </ul>
+                            <div class="flex justify-center space-x-3">
+                                <a href="#" class="text-blue-600 hover:text-blue-800 text-2xl"><i class="fab fa-facebook"></i></a>
+                                <a href="#" class="text-blue-400 hover:text-blue-600 text-2xl"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="text-pink-600 hover:text-pink-800 text-2xl"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="text-blue-700 hover:text-blue-900 text-2xl"><i class="fab fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center p-8 bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl card-shadow">
+                            <div class="w-20 h-20 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <i class="fas fa-handshake text-3xl text-white"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">Partner With Us</h3>
+                            <p class="text-gray-600 mb-6">
+                                Organizations, businesses, and institutions can partner with us to amplify our impact and reach.
+                            </p>
+                            <ul class="text-left space-y-2 mb-6 text-gray-700">
+                                <li><i class="fas fa-check text-purple-500 mr-2"></i>Corporate partnerships</li>
+                                <li><i class="fas fa-check text-purple-500 mr-2"></i>Grant collaborations</li>
+                                <li><i class="fas fa-check text-purple-500 mr-2"></i>Resource sharing</li>
+                                <li><i class="fas fa-check text-purple-500 mr-2"></i>Joint initiatives</li>
+                            </ul>
+                            <button @click="currentPage = 'contact'" class="btn-secondary text-white px-6 py-3 rounded-lg font-medium">
+                                Explore Partnership
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- About Page -->
+        <div x-show="currentPage === 'about'" x-transition>
+            <section class="gradient-bg hero-pattern py-20">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+                    <h1 class="text-5xl font-bold mb-4">About Kuraa Galaan</h1>
+                    <p class="text-xl text-white/90 max-w-3xl mx-auto">
+                        Dedicated to transforming lives and building stronger communities across Ethiopia 🇪🇹
+                    </p>
+                </div>
+            </section>
+            
+            <section class="py-20 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                        <div>
+                            <h2 class="text-4xl font-bold text-gray-800 mb-6">Our Mission</h2>
+                            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                                Kuraa Galaan Charity Organization is committed to empowering Ethiopian communities through comprehensive programs in education, healthcare, and sustainable development. We believe in creating lasting change that transforms lives and builds resilient communities.
+                            </p>
+                            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                                Founded with the vision of a prosperous Ethiopia where every individual has access to basic necessities and opportunities for growth, we work tirelessly to bridge gaps and create pathways to success.
+                            </p>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-heart text-2xl text-green-600"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-800">Compassion</h3>
+                                    <p class="text-gray-600">Driven by empathy and care</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-gradient-to-br from-green-100 to-blue-100 rounded-2xl p-8">
+                            <div class="text-center">
+                                <i class="fas fa-globe-africa text-8xl text-green-600 mb-4"></i>
+                                <h3 class="text-2xl font-bold text-gray-800 mb-2">Serving Ethiopia</h3>
+                                <p class="text-gray-600">From Finfinnee to rural communities across the nation</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                        <div class="text-center p-6">
+                            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-eye text-2xl text-blue-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Our Vision</h3>
+                            <p class="text-gray-600">A thriving Ethiopia where every community has access to education, healthcare, and opportunities for sustainable development.</p>
+                        </div>
+                        
+                        <div class="text-center p-6">
+                            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-bullseye text-2xl text-green-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Our Values</h3>
+                            <p class="text-gray-600">Integrity, transparency, community empowerment, and sustainable impact guide everything we do.</p>
+                        </div>
+                        
+                        <div class="text-center p-6">
+                            <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-users text-2xl text-purple-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Our Team</h3>
+                            <p class="text-gray-600">Dedicated professionals and volunteers working together to create meaningful change in Ethiopian communities.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 rounded-2xl p-8">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Our Impact Timeline</h2>
+                        <div class="space-y-8">
+                            <div class="flex items-center space-x-6">
+                                <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white font-bold">2020</div>
+                                <div>
+                                    <h3 class="font-bold text-gray-800">Foundation Established</h3>
+                                    <p class="text-gray-600">Kuraa Galaan Charity Organization was founded in Finfinnee, Ethiopia</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-6">
+                                <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">2021</div>
+                                <div>
+                                    <h3 class="font-bold text-gray-800">First Education Program</h3>
+                                    <p class="text-gray-600">Launched our education support program, helping 100+ students</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-6">
+                                <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold">2022</div>
+                                <div>
+                                    <h3 class="font-bold text-gray-800">Healthcare Initiative</h3>
+                                    <p class="text-gray-600">Introduced mobile health clinics serving rural communities</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-6">
+                                <div class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold">2023</div>
+                                <div>
+                                    <h3 class="font-bold text-gray-800">Community Development</h3>
+                                    <p class="text-gray-600">Expanded to include water projects and agricultural training</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-6">
+                                <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-bold">2024</div>
+                                <div>
+                                    <h3 class="font-bold text-gray-800">Digital Expansion</h3>
+                                    <p class="text-gray-600">Launched online platform for global donations and volunteer coordination</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Contact Page -->
+        <div x-show="currentPage === 'contact'" x-transition>
+            <section class="gradient-bg hero-pattern py-20">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+                    <h1 class="text-5xl font-bold mb-4">Contact Us</h1>
+                    <p class="text-xl text-white/90 max-w-3xl mx-auto">
+                        Get in touch with us to learn more about our work or to get involved
+                    </p>
+                </div>
+            </section>
+            
+            <section class="py-20 bg-gray-50">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                        <!-- Contact Information -->
+                        <div class="bg-white rounded-2xl p-8 card-shadow">
+                            <h2 class="text-3xl font-bold text-gray-800 mb-8">Get In Touch</h2>
+                            
+                            <div class="space-y-6">
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-map-marker-alt text-green-600"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-gray-800">Address</h3>
+                                        <p class="text-gray-600">Finfinnee, Ethiopia 🇪🇹</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-phone text-blue-600"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-gray-800">Phone</h3>
+                                        <p class="text-gray-600">+251948528685</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-envelope text-purple-600"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-gray-800">Email</h3>
+                                        <p class="text-gray-600">kuraagalaan2024@gmail.com</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-clock text-orange-600"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-semibold text-gray-800">Office Hours</h3>
+                                        <p class="text-gray-600">Monday - Friday: 8:00 AM - 6:00 PM</p>
+                                        <p class="text-gray-600">Saturday: 9:00 AM - 4:00 PM</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-8 pt-8 border-t border-gray-200">
+                                <h3 class="font-semibold text-gray-800 mb-4">Follow Us</h3>
+                                <div class="flex space-x-4">
+                                    <a href="#" class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a href="#" class="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center text-white hover:bg-blue-500">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                    <a href="#" class="w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center text-white hover:bg-pink-700">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                    <a href="#" class="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center text-white hover:bg-blue-800">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Contact Form -->
+                        <div class="bg-white rounded-2xl p-8 card-shadow">
+                            <h2 class="text-3xl font-bold text-gray-800 mb-8">Send us a Message</h2>
+                            
+                            <form @submit.prevent="submitContactForm()" class="space-y-6">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
+                                        <input x-model="contactForm.firstName" type="text" required 
+                                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-800 focus:border-transparent">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
+                                        <input x-model="contactForm.lastName" type="text" required 
+                                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-800 focus:border-transparent">
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                                    <input x-model="contactForm.email" type="email" required 
+                                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-800 focus:border-transparent">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                                    <input x-model="contactForm.phone" type="tel" 
+                                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-800 focus:border-transparent">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Subject *</label>
+                                    <select x-model="contactForm.subject" required 
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-800 focus:border-transparent">
+                                        <option value="">Select a subject</option>
+                                        <option value="volunteer">Volunteer Opportunities</option>
+                                        <option value="partnership">Partnership Inquiry</option>
+                                        <option value="donation">Donation Questions</option>
+                                        <option value="general">General Information</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Message *</label>
+                                    <textarea x-model="contactForm.message" rows="5" required 
+                                              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-800 focus:border-transparent"
+                                              placeholder="Tell us how we can help you..."></textarea>
+                                </div>
+                                
+                                <button type="submit" :disabled="contactLoading" 
+                                        class="w-full btn-primary text-white py-4 rounded-xl font-bold text-lg disabled:opacity-50 disabled:cursor-not-allowed">
+                                    <template x-if="contactLoading">
+                                        <div class="flex items-center justify-center">
+                                            <div class="loading-spinner mr-2"></div>
+                                            Sending...
+                                        </div>
+                                    </template>
+                                    <template x-if="!contactLoading">
+                                        <span>
+                                            <i class="fas fa-paper-plane mr-2"></i>
+                                            Send Message
+                                        </span>
+                                    </template>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
 
     <!-- Footer -->
-    <footer class="bg-primary text-white py-12">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer class="gradient-bg-secondary text-white py-16 relative overflow-hidden">
+        <div class="absolute inset-0 hero-pattern opacity-30"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Organization Info -->
                 <div>
-                    <div class="flex items-center space-x-3 mb-4">
-                        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                            <i class="fas fa-heart text-primary"></i>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-br from-blue-800 to-indigo-700 rounded-full flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">KG</span>
                         </div>
                         <div>
-                            <div class="font-bold text-lg">Kuraa Galaan</div>
-                            <div class="text-sm opacity-90">Charity Organization</div>
+                            <h3 class="text-xl font-bold">KURAA GALAAN</h3>
+                            <p class="text-sm text-gray-400">Charity Organization</p>
                         </div>
                     </div>
-                    <p class="text-sm opacity-90 mb-4">
-                        Empowering Ethiopian communities through sustainable development programs 
-                        in education, healthcare, nutrition, and clean water initiatives.
+                    <p class="text-gray-400 mb-4">
+                        Transforming lives and building stronger communities across Ethiopia through education, healthcare, and sustainable development.
                     </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
                 </div>
-
+                
                 <!-- Quick Links -->
                 <div>
-                    <h4 class="font-bold text-lg mb-4">Quick Links</h4>
-                    <div class="space-y-2">
-                        <a href="#" onclick="showPage('home')" class="block text-sm opacity-90 hover:opacity-100 transition-opacity">Home</a>
-                        <a href="#" onclick="showPage('about')" class="block text-sm opacity-90 hover:opacity-100 transition-opacity">About Us</a>
-                        <a href="#" onclick="showPage('programs')" class="block text-sm opacity-90 hover:opacity-100 transition-opacity">Programs</a>
-                        <a href="#" onclick="showPage('involve')" class="block text-sm opacity-90 hover:opacity-100 transition-opacity">Get Involved</a>
-                        <a href="#" onclick="showPage('donate')" class="block text-sm opacity-90 hover:opacity-100 transition-opacity">Donate</a>
-                    </div>
+                    <h3 class="text-lg font-semibold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" @click="currentPage = 'home'" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="#" @click="currentPage = 'about'" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="#" @click="currentPage = 'programs'" class="text-gray-400 hover:text-white">Our Programs</a></li>
+                        <li><a href="#" @click="currentPage = 'involved'" class="text-gray-400 hover:text-white">Get Involved</a></li>
+                        <li><a href="#" @click="currentPage = 'contact'" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
                 </div>
-
+                
+                <!-- Programs -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Our Programs</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Education Support</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Healthcare Access</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Community Development</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Emergency Relief</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Water Projects</a></li>
+                    </ul>
+                </div>
+                
                 <!-- Contact Info -->
                 <div>
-                    <h4 class="font-bold text-lg mb-4">Contact</h4>
-                    <div class="space-y-2 text-sm opacity-90">
-                        <div class="flex items-center">
-                            <i class="fas fa-envelope mr-2"></i>
-                            <a href="mailto:kuraagalaan2024@gmail.com" class="hover:opacity-100 transition-opacity">
-                                kuraagalaan2024@gmail.com
-                            </a>
+                    <h3 class="text-lg font-semibold mb-6">Contact Info</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-map-marker-alt text-green-500"></i>
+                            <span class="text-gray-400">Finfinnee, Ethiopia 🇪🇹</span>
                         </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-phone mr-2"></i>
-                            <a href="tel:+251948528685" class="hover:opacity-100 transition-opacity">
-                                +251 948 528 685
-                            </a>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-phone text-green-500"></i>
+                            <span class="text-gray-400">+251948528685</span>
                         </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-map-marker-alt mr-2"></i>
-                            <span>Addis Ababa, Ethiopia</span>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-envelope text-green-500"></i>
+                            <span class="text-gray-400">kuraagalaan2024@gmail.com</span>
                         </div>
                     </div>
-                </div>
-
-                <!-- Newsletter -->
-                <div>
-                    <h4 class="font-bold text-lg mb-4">Stay Updated</h4>
-                    <p class="text-sm opacity-90 mb-4">
-                        Subscribe to our newsletter for updates on our programs and impact.
-                    </p>
-                    <div class="flex">
-                        <input type="email" placeholder="Your email" class="flex-1 px-3 py-2 rounded-l-lg text-gray-800 text-sm">
-                        <button class="bg-accent text-text px-4 py-2 rounded-r-lg hover:bg-yellow-400 transition-colors">
-                            <i class="fas fa-paper-plane"></i>
+                    
+                    <div class="mt-6">
+                        <button @click="currentPage = 'donate'" class="btn-primary text-white px-6 py-3 rounded-lg font-medium w-full">
+                            <i class="fas fa-heart mr-2"></i>
+                            Donate Now
                         </button>
                     </div>
                 </div>
             </div>
-
-            <div class="border-t border-white/20 mt-8 pt-8 text-center">
-                <p class="text-sm opacity-90">
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-400">
                     © 2024 Kuraa Galaan Charity Organization. All rights reserved. | 
-                    <a href="#" class="hover:opacity-100 transition-opacity">Privacy Policy</a> | 
-                    <a href="#" class="hover:opacity-100 transition-opacity">Terms of Service</a>
+                    Developed by <span class="text-green-500 font-semibold">NIBRAS AHMED</span>
                 </p>
             </div>
         </div>
     </footer>
 
+    <!-- Success/Error Notifications -->
+    <div x-show="notification.show" x-transition 
+         class="fixed top-20 right-4 z-50 p-4 rounded-lg text-white max-w-sm"
+         :class="notification.type === 'success' ? 'bg-green-500' : 'bg-red-500'">
+        <div class="flex items-center">
+            <i :class="notification.type === 'success' ? 'fas fa-check-circle' : 'fas fa-exclamation-circle'" class="mr-2"></i>
+            <span x-text="notification.message"></span>
+        </div>
+    </div>
+
     <script>
-        let currentPage = 'home';
-
-        // Navigation
-        function showPage(page) {
-            // Hide all pages
-            document.querySelectorAll('.page-content').forEach(el => {
-                el.classList.add('hidden');
-            });
-            
-            // Show selected page
-            document.getElementById(page + '-page').classList.remove('hidden');
-            document.getElementById(page + '-page').classList.add('fade-in');
-            
-            // Update navigation
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
-            });
-            
-            const navLink = document.getElementById('nav-' + page);
-            if (navLink) {
-                navLink.classList.add('active');
-            }
-            
-            currentPage = page;
-            
-            // Close mobile menu
-            document.getElementById('mobile-menu').classList.add('hidden');
-            
-            // Scroll to top
-            window.scrollTo(0, 0);
-        }
-
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        }
-
-        function scrollToElement(elementId) {
-            const element = document.getElementById(elementId);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        }
-
-        // Donation amount selection
-        function selectAmount(amount) {
-            // Remove selected class from all buttons
-            document.querySelectorAll('.donation-amount').forEach(btn => {
-                btn.classList.remove('selected');
-            });
-            
-            // Add selected class to clicked button
-            event.target.classList.add('selected');
-            
-            // Show/hide custom amount input
-            const customInput = document.getElementById('custom-amount');
-            if (amount === 'custom') {
-                customInput.classList.remove('hidden');
-                customInput.focus();
-            } else {
-                customInput.classList.add('hidden');
-                customInput.value = amount;
-            }
-        }
-
-        // Form submissions (placeholder functionality)
-        document.addEventListener('DOMContentLoaded', function() {
-            // Handle form submissions
-            document.querySelectorAll('form').forEach(form => {
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    alert('Thank you for your submission! We will get back to you soon.');
-                });
-            });
-
-            // Initialize with home page
-            showPage('home');
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+        function charityApp() {
+            return {
+                currentPage: 'home',
+                selectedCurrency: 'ETB',
+                donationLoading: false,
+                contactLoading: false,
+                
+                // Exchange rates (ETB as base)
+                exchangeRates: {
+                    'ETB': 1.0,
+                    'USD': 0.018,
+                    'EUR': 0.016,
+                    'SAR': 0.068
+                },
+                
+                // Currency symbols
+                currencySymbols: {
+                    'ETB': 'Br',
+                    'USD': '$',
+                    'EUR': '€',
+                    'SAR': '﷼'
+                },
+                
+                // Stats
+                stats: {
+                    totalDonations: 1250,
+                    totalAmount: 45000
+                },
+                
+                // Forms
+                donationForm: {
+                    name: '',
+                    email: '',
+                    phone: '',
+                    amount: '',
+                    currency: 'ETB',
+                    method: ''
+                },
+                
+                contactForm: {
+                    firstName: '',
+                    lastName: '',
+                    email: '',
+                    phone: '',
+                    subject: '',
+                    message: ''
+                },
+                
+                // Notification system
+                notification: {
+                    show: false,
+                    type: 'success',
+                    message: ''
+                },
+                
+                // Initialize
+                init() {
+                    this.donationForm.currency = this.selectedCurrency;
+                    this.loadStats();
+                },
+                
+                // Currency functions
+                updateCurrency() {
+                    this.donationForm.currency = this.selectedCurrency;
+                },
+                
+                updateDonationCurrency() {
+                    this.selectedCurrency = this.donationForm.currency;
+                },
+                
+                formatCurrency(amount, currency = null) {
+                    if (!amount) return '';
+                    const curr = currency || this.selectedCurrency;
+                    const symbol = this.currencySymbols[curr];
+                    return `${symbol}${Number(amount).toLocaleString()}`;
+                },
+                
+                convertToETB(amount, fromCurrency) {
+                    if (!amount) return 0;
+                    const rate = this.exchangeRates[fromCurrency] || 1;
+                    return amount / rate;
+                },
+                
+                getAmountPlaceholder() {
+                    const currency = this.donationForm.currency;
+                    const examples = {
+                        'ETB': 'e.g., 1000',
+                        'USD': 'e.g., 25',
+                        'EUR': 'e.g., 20',
+                        'SAR': 'e.g., 75'
+                    };
+                    return examples[currency] || 'Enter amount';
+                },
+                
+                getQuickAmounts() {
+                    const currency = this.donationForm.currency;
+                    const amounts = {
+                        'ETB': [500, 1000, 2500, 5000],
+                        'USD': [10, 25, 50, 100],
+                        'EUR': [10, 20, 50, 100],
+                        'SAR': [25, 50, 100, 200]
+                    };
+                    return amounts[currency] || amounts['ETB'];
+                },
+                
+                getPaymentMethods() {
+                    const currency = this.donationForm.currency;
+                    const methods = {
+                        'ETB': [
+                            { id: 'chapa', name: 'Chapa', description: 'Mobile payment', icon: 'fas fa-mobile-alt' },
+                            { id: 'telebirr', name: 'Telebirr', description: 'USSD payment', icon: 'fas fa-phone' },
+                            { id: 'manual', name: 'Bank Transfer', description: 'Manual transfer', icon: 'fas fa-university' }
+                        ],
+                        'USD': [
+                            { id: 'stripe', name: 'Credit Card', description: 'Visa, Mastercard', icon: 'fas fa-credit-card' },
+                            { id: 'paypal', name: 'PayPal', description: 'PayPal account', icon: 'fab fa-paypal' },
+                            { id: 'manual', name: 'Bank Transfer', description: 'Wire transfer', icon: 'fas fa-university' }
+                        ],
+                        'EUR': [
+                            { id: 'stripe', name: 'Credit Card', description: 'Visa, Mastercard', icon: 'fas fa-credit-card' },
+                            { id: 'paypal', name: 'PayPal', description: 'PayPal account', icon: 'fab fa-paypal' },
+                            { id: 'manual', name: 'Bank Transfer', description: 'SEPA transfer', icon: 'fas fa-university' }
+                        ],
+                        'SAR': [
+                            { id: 'stripe', name: 'Credit Card', description: 'Visa, Mastercard', icon: 'fas fa-credit-card' },
+                            { id: 'manual', name: 'Bank Transfer', description: 'Local transfer', icon: 'fas fa-university' }
+                        ]
+                    };
+                    return methods[currency] || methods['ETB'];
+                },
+                
+                // API functions
+                async loadStats() {
+                    try {
+                        // In production, load from your backend
+                        // const response = await fetch('/api/donate/stats');
+                        // const data = await response.json();
+                        // this.stats = data;
+                    } catch (error) {
+                        console.error('Failed to load stats:', error);
+                    }
+                },
+                
+                async submitDonation() {
+                    if (!this.donationForm.name || !this.donationForm.amount || !this.donationForm.method) {
+                        this.showNotification('Please fill in all required fields', 'error');
+                        return;
+                    }
+                    
+                    this.donationLoading = true;
+                    
+                    try {
+                        // In production, replace with your backend URL
+                        const response = await fetch('https://kuraagalaan-charity-backend.onrender.com/api/donate', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Origin': window.location.origin
+                            },
+                            body: JSON.stringify(this.donationForm)
+                        });
+                        
+                        const data = await response.json();
+                        
+                        if (data.success) {
+                            if (data.provider === 'stripe') {
+                                // Handle Stripe payment
+                                this.showNotification('Redirecting to payment...', 'success');
+                                // Implement Stripe payment flow
+                            } else if (data.provider === 'chapa') {
+                                // Redirect to Chapa
+                                if (data.checkout_url) {
+                                    window.open(data.checkout_url, '_blank');
+                                }
+                                this.showNotification('Payment initiated successfully!', 'success');
+                            } else if (data.provider === 'telebirr') {
+                                // Show Telebirr instructions
+                                this.showNotification('Please follow the Telebirr instructions', 'success');
+                            } else if (data.provider === 'manual') {
+                                // Show bank details
+                                this.showNotification('Bank details provided. Please complete the transfer.', 'success');
+                            }
+                            
+                            // Reset form
+                            this.donationForm = {
+                                name: '',
+                                email: '',
+                                phone: '',
+                                amount: '',
+                                currency: this.selectedCurrency,
+                                method: ''
+                            };
+                        } else {
+                            this.showNotification(data.error || 'Donation failed', 'error');
+                        }
+                    } catch (error) {
+                        console.error('Donation error:', error);
+                        this.showNotification('Network error. Please try again.', 'error');
+                    } finally {
+                        this.donationLoading = false;
+                    }
+                },
+                
+                async submitContactForm() {
+                    if (!this.contactForm.firstName || !this.contactForm.lastName || 
+                        !this.contactForm.email || !this.contactForm.subject || !this.contactForm.message) {
+                        this.showNotification('Please fill in all required fields', 'error');
+                        return;
+                    }
+                    
+                    this.contactLoading = true;
+                    
+                    try {
+                        // Simulate API call
+                        await new Promise(resolve => setTimeout(resolve, 2000));
+                        
+                        this.showNotification('Message sent successfully! We\'ll get back to you soon.', 'success');
+                        
+                        // Reset form
+                        this.contactForm = {
+                            firstName: '',
+                            lastName: '',
+                            email: '',
+                            phone: '',
+                            subject: '',
+                            message: ''
+                        };
+                    } catch (error) {
+                        console.error('Contact form error:', error);
+                        this.showNotification('Failed to send message. Please try again.', 'error');
+                    } finally {
+                        this.contactLoading = false;
+                    }
+                },
+                
+                showNotification(message, type = 'success') {
+                    this.notification = {
+                        show: true,
+                        type,
+                        message
+                    };
+                    
+                    setTimeout(() => {
+                        this.notification.show = false;
+                    }, 5000);
                 }
+            }
+        }
+        
+        // Smooth scrolling and animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Intersection Observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all sections
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.add('section-fade');
+                observer.observe(section);
             });
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97fb573b613e4b73',t:'MTc1Nzk3MzAzOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'987dde0ef290feef',t:'MTc1OTM0MTcwOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
-
