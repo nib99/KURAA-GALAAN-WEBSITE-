@@ -1065,14 +1065,14 @@
             }
             
             static async createDonation(donationData) {
-                return this.makeRequest('/donations', {
+                return this.makeRequest('/api/donations', {
                     method: 'POST',
                     body: JSON.stringify(donationData)
                 });
             }
             
             static async submitContact(contactData) {
-                return this.makeRequest('/contact', {
+                return this.makeRequest('/api/contact', {
                     method: 'POST',
                     body: JSON.stringify(contactData)
                 });
