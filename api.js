@@ -28,22 +28,22 @@ class ApiService {
 
   // ===== DONATION METHODS =====
   async createDonation(donationData) {
-    return this.request('/api/donation/create', {
+    return this.request('/donation/create', {
       method: 'POST',
       body: JSON.stringify(donationData),
     });
   }
 
   async getDonationHistory(userId) {
-    return this.request(`/api/donation/history${userId ? `?userId=${userId}` : ''}`);
+    return this.request(`/donation/history${userId ? `?userId=${userId}` : ''}`);
   }
 
   async getDonationStats() {
-    return this.request('/api/donation/stats');
+    return this.request('/donation/stats');
   }
 
   async verifyPayment(paymentData) {
-    return this.request('/api/donation/verify', {
+    return this.request('/donation/verify', {
       method: 'POST',
       body: JSON.stringify(paymentData),
     });
