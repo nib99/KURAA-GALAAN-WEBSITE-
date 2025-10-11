@@ -1,5 +1,5 @@
 // lib/api.js
-const API_BASE_URL = 'https://kuraagalaan-charity-backend.onrender.com/api/donation/create;
+const API_BASE_URL = 'https://kuraagalaan-charity-backend.onrender.com/api';
 
 class ApiService {
   async request(endpoint, options = {}) {
