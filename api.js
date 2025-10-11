@@ -30,7 +30,7 @@ class ApiService {
   async createDonation(donationData) {
     return this.request('/donation/create', {
       method: 'POST',
-      body: json.stringify(donationData),
+      body: JSON.stringify(donationData),
     });
   }
 
@@ -45,7 +45,7 @@ class ApiService {
   async verifyPayment(paymentData) {
     return this.request('/donation/verify', {
       method: 'POST',
-      body: json.stringify(paymentData),
+      body: JSON.stringify(paymentData),
     });
   }
 
@@ -53,7 +53,7 @@ class ApiService {
   async sendContactMessage(messageData) {
     return this.request('/contact/send', {
       method: 'POST',
-      body: json.stringify(messageData),
+      body: JSON.stringify(messageData),
     });
   }
 
