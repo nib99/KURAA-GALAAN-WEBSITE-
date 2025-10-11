@@ -2,27 +2,39 @@
 const API_BASE_URL = 'https://kuraagalaan-charity-backend.onrender.com/api';
 
 class ApiService {
+  // Generic request handler with HTML-safe JSON parsing
   async request(endpoint, options = {}) {
     const url = `${API_BASE_URL}${endpoint}`;
     const config = {
       headers: {
         'Content-Type': 'application/json',
+        Accept: 'application/json',
         ...options.headers,
       },
       ...options,
     };
 
     try {
-      const response = await fetch(url, config);
-      
-      if (!response.ok) {
-        throw new Error(`API Error: ${response.statusText}`);
+      const res = await fetch(url, config);
+      const text = await res.text();
+
+      // Detect HTML response
+      if (text.trim().startsWith('<')) {
+        console.error('🚨 Received HTML instead of JSON:', text);
+        return { success: false, message: 'Unexpected HTML response from server' };
       }
-      
-      return response.json();
+
+      const data = JSON.parse(text);
+
+      if (!res.ok) {
+        console.error('❌ API Error:', data.message || res.statusText);
+        return { success: false, message: data.message || 'Request failed' };
+      }
+
+      return data;
     } catch (error) {
-      console.error('API Request failed:', error);
-      throw error;
+      console.error('🚨 API Request failed:', error);
+      return { success: false, message: 'Network or server error' };
     }
   }
 
@@ -60,24 +72,21 @@ class ApiService {
   async getContactMessages(token) {
     return this.request('/contact/messages', {
       headers: {
-        'Authorization': `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
       },
     });
   }
-    // ===== USER METHODS =====
+
+  // ===== USER METHODS =====
   async getUsers(token) {
     return this.request('/users', {
-      headers: {
-        'Authorization': `Bearer ${token}`,
-      },
+      headers: { Authorization: `Bearer ${token}` },
     });
   }
 
   async getUser(userId, token) {
     return this.request(`/users/${userId}`, {
-      headers: {
-        'Authorization': `Bearer ${token}`,
-      },
+      headers: { Authorization: `Bearer ${token}` },
     });
   }
 
@@ -85,9 +94,7 @@ class ApiService {
     return this.request(`/users/${userId}`, {
       method: 'PUT',
       body: JSON.stringify(userData),
-      headers: {
-        'Authorization': `Bearer ${token}`,
-      },
+      headers: { Authorization: `Bearer ${token}` },
     });
   }
 
@@ -116,28 +123,23 @@ class ApiService {
   // ===== ADMIN METHODS =====
   async getAdminDashboard(token) {
     return this.request('/admin/dashboard', {
-      headers: {
-        'Authorization': `Bearer ${token}`,
-      },
+      headers: { Authorization: `Bearer ${token}` },
     });
   }
 
   async getAdminUsers(token) {
     return this.request('/admin/users', {
-      headers: {
-        'Authorization': `Bearer ${token}`,
-      },
+      headers: { Authorization: `Bearer ${token}` },
     });
   }
 
   async getAdminProducts(token) {
     return this.request('/admin/products', {
-      headers: {
-        'Authorization': `Bearer ${token}`,
-      },
+      headers: { Authorization: `Bearer ${token}` },
     });
   }
-  // ===== LEGACY PAYMENT METHODS (keeping for compatibility) =====
+
+  // ===== LEGACY PAYMENT METHODS =====
   async createPaymentIntent(amount, orderId) {
     return this.request('/create-payment-intent', {
       method: 'POST',
@@ -152,12 +154,10 @@ class ApiService {
     });
   }
 
-  // Analytics (admin only)
+  // ===== ANALYTICS =====
   async getAnalytics(token) {
     return this.request('/analytics', {
-      headers: {
-        'Authorization': `Bearer ${token}`,
-      },
+      headers: { Authorization: `Bearer ${token}` },
     });
   }
 }
