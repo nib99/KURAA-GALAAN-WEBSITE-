@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Transfer Instructions - Kuraa Galaan Charity</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-primary {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #06b6d4 100%);
+        }
+        .gradient-secondary {
+            background: linear-gradient(135deg, #059669 0%, #10b981 50%, #34d399 100%);
+        }
+        .btn-premium {
+            background: linear-gradient(135deg, #006D77 0%, #83C5BE 100%);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+            transition: all 0.3s ease;
+        }
+        .btn-premium:hover {
+            background: linear-gradient(135deg, #004d54 0%, #6fb3ae 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(59, 130, 246, 0.4);
+        }
+        .card-premium {
+            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .loading-spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ffffff;
+            border-top: 2px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 768px) {
+            .section-padding {
+                padding: 40px 0;
+            }
+            .mobile-card-padding {
+                padding: 1rem !important;
+            }
+            .mobile-text-sm {
+                font-size: 0.875rem !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div x-data="bankTransfer()" class="fade-in">
+        <!-- Navigation -->
+        <nav class="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 fixed top-0 left-0 right-0 z-50 shadow-2xl backdrop-blur-md border-b border-slate-700/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-20">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <h1 class="text-2xl font-black bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">🇪🇹 KURAA GALAAN</h1>
+                            <p class="text-xs text-slate-300 font-black tracking-wider">CHARITY ORGANIZATION</p>
+                        </div>
+                    </div>
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a href="/" class="text-slate-200 hover:text-emerald-400 px-3 py-2 text-sm font-black transition-all duration-300">Home</a>
+                        <a href="/#programs" class="text-slate-200 hover:text-emerald-400 px-3 py-2 text-sm font-black transition-all duration-300">Programs</a>
+                        <a href="/#involved" class="text-slate-200 hover:text-emerald-400 px-3 py-2 text-sm font-black transition-all duration-300">Get Involved</a>
+                        <a href="/#about" class="text-slate-200 hover:text-emerald-400 px-3 py-2 text-sm font-black transition-all duration-300">About</a>
+                        <a href="/#contact" class="text-slate-200 hover:text-emerald-400 px-3 py-2 text-sm font-black transition-all duration-300">Contact</a>
+                        <a href="/#donate" class="bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-600 hover:to-cyan-600 text-white px-6 py-2 rounded-full font-black text-sm shadow-lg hover:shadow-emerald-500/25 transition-all duration-300 transform hover:scale-105">
+                            <i class="fas fa-heart mr-2"></i>Donate Now
+                        </a>
+                    </div>
+                    <div class="md:hidden">
+                        <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-slate-200 hover:text-emerald-400 transition-colors duration-300">
+                            <i class="fas fa-bars text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+                <div x-show="mobileMenuOpen" x-transition class="md:hidden bg-slate-800/95 backdrop-blur-md border-t border-slate-700/50">
+                    <div class="px-2 pt-2 pb-3 space-y-1">
+                        <a href="/" class="block px-3 py-2 text-base font-black text-slate-200 hover:bg-slate-700/50 rounded-md">Home</a>
+                        <a href="/#programs" class="block px-3 py-2 text-base font-black text-slate-200 hover:bg-slate-700/50 rounded-md">Programs</a>
+                        <a href="/#involved" class="block px-3 py-2 text-base font-black text-slate-200 hover:bg-slate-700/50 rounded-md">Get Involved</a>
+                        <a href="/#about" class="block px-3 py-2 text-base font-black text-slate-200 hover:bg-slate-700/50 rounded-md">About</a>
+                        <a href="/#contact" class="block px-3 py-2 text-base font-black text-slate-200 hover:bg-slate-700/50 rounded-md">Contact</a>
+                        <a href="/#donate" class="block bg-gradient-to-r from-emerald-500 to-cyan-500 text-white px-6 py-2 rounded-full font-black text-sm w-full mt-4 shadow-lg transition-all duration-300">
+                            <i class="fas fa-heart mr-2"></i>Donate Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Bank Transfer Instructions -->
+        <section class="section-padding pt-24 bg-gradient-to-br from-[#F8FFFE] via-white to-[#E8F6F5]">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="card-premium rounded-3xl p-8 shadow-2xl border border-[#006D77]/10">
+                    <h2 class="text-3xl md:text-4xl font-black text-[#006D77] mb-6 border-b-2 border-[#83C5BE] pb-3">Bank Transfer Instructions</h2>
+                    <div x-show="!loading && !error" class="space-y-6 mobile-text-sm">
+                        <p class="text-base text-[#006D77] font-bold"><strong>Account Name:</strong> <span x-text="bankDetails.accountName"></span></p>
+                        <p class="text-base text-[#006D77] font-bold"><strong>Account Number:</strong> <span x-text="bankDetails.accountNumber"></span></p>
+                        <p class="text-base text-[#006D77] font-bold"><strong>Bank Name:</strong> <span x-text="bankDetails.bankName"></span></p>
+                        <p class="text-base text-[#006D77] font-bold"><strong>Branch:</strong> <span x-text="bankDetails.branch"></span></p>
+                        <p class="text-base text-[#006D77] font-bold"><strong>SWIFT Code:</strong> <span x-text="bankDetails.swiftCode"></span></p>
+                        <p class="text-base text-[#006D77] font-bold"><strong>Instructions:</strong> <span x-text="bankDetails.instructions"></span></p>
+                    </div>
+                    <div x-show="loading" class="text-center text-[#006D77] font-bold">Loading...</div>
+                    <div x-show="error" class="text-red-600 font-bold" x-text="error"></div>
+                    <button
+                        @click="downloadInstructions"
+                        :disabled="loading || error"
+                        class="mt-8 w-full btn-premium text-white py-4 rounded-xl font-black text-lg transition-all"
+                    >
+                        <i class="fas fa-download mr-2"></i>Download Instructions
+                    </button>
+                    <!-- Receipt Upload Form -->
+                    <form @submit.prevent="uploadReceipt" class="mt-8 space-y-6" enctype="multipart/form-data">
+                        <h3 class="text-2xl font-black text-[#006D77] mb-4">Upload Transaction Receipt</h3>
+                        <div>
+                            <label class="block text-base font-black text-[#006D77] mb-3">Select Receipt File (Image or PDF) *</label>
+                            <input
+                                type="file"
+                                x-ref="receipt"
+                                accept="image/*,application/pdf"
+                                required
+                                class="w-full px-4 py-4 border-2 border-[#006D77]/20 rounded-xl focus:ring-2 focus:ring-[#83C5BE] focus:border-[#83C5BE] transition-all"
+                            >
+                        </div>
+                        <button
+                            type="submit"
+                            :disabled="uploading"
+                            :class="uploading ? 'opacity-50 cursor-not-allowed' : 'hover:transform hover:scale-105'"
+                            class="w-full bg-gradient-to-r from-green-600 to-green-400 hover:from-green-700 hover:to-green-500 text-white py-4 rounded-xl font-black text-lg transition-all shadow-2xl"
+                        >
+                            <span x-show="!uploading">
+                                <i class="fas fa-upload mr-2"></i>Upload Receipt
+                            </span>
+                            <span x-show="uploading" class="flex items-center justify-center">
+                                <div class="loading-spinner mr-2"></div>Uploading...
+                            </span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gray-900 text-white section-padding">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                    <div class="md:col-span-2">
+                        <h3 class="text-2xl font-bold mb-4">🇪🇹 KURAA GALAAN</h3>
+                        <p class="text-gray-300 mb-6">
+                            Transforming lives and building stronger communities across Ethiopia through education, healthcare, sustainable development, and emergency relief programs.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center hover:bg-pink-700 transition-colors">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-900 transition-colors">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                        <ul class="space-y-2 text-gray-300">
+                            <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+                            <li><a href="/#programs" class="hover:text-white transition-colors">Our Programs</a></li>
+                            <li><a href="/#involved" class="hover:text-white transition-colors">Get Involved</a></li>
+                            <li><a href="/#about" class="hover:text-white transition-colors">About Us</a></li>
+                            <li><a href="/#contact" class="hover:text-white transition-colors">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-4">Contact Info</h4>
+                        <ul class="space-y-2 text-gray-300">
+                            <li class="flex items-center">
+                                <i class="fas fa-envelope mr-2"></i>
+                                kuraagalaan2024@gmail.com
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-phone mr-2"></i>
+                                +251948528685
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-map-marker-alt mr-2"></i>
+                                Finfinnee, Ethiopia 🇪🇹
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                    <p>&copy; 2024 KURAA GALAAN CHARITY ORGANIZATION. All rights reserved.</p>
+                    <p class="mt-2">Developed by <span class="text-blue-400 font-medium">NIBRAS AHMED</span></p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Success/Error Messages -->
+        <div x-show="showMessage" x-transition class="fixed bottom-4 right-4 z-50 max-w-md">
+            <div :class="messageType === 'success' ? 'bg-green-500' : 'bg-red-500'" class="text-white p-4 rounded-xl shadow-lg">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <i :class="messageType === 'success' ? 'fas fa-check-circle' : 'fas fa-exclamation-circle'" class="mr-2"></i>
+                        <span x-text="messageText"></span>
+                    </div>
+                    <button @click="showMessage = false" class="ml-4 text-white hover:text-gray-200">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function bankTransfer() {
+            return {
+                bankDetails: {
+                    accountName: '',
+                    accountNumber: '',
+                    bankName: '',
+                    branch: '',
+                    swiftCode: '',
+                    instructions: ''
+                },
+                loading: true,
+                error: '',
+                uploading: false,
+                showMessage: false,
+                messageType: 'success',
+                messageText: '',
+                mobileMenuOpen: false,
+
+                async init() {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const donationId = urlParams.get('donation_id');
+                    try {
+                        const response = await fetch(`https://kuraagalaan-charity-backend.onrender.com/api/donations/${donationId}`, {
+                            headers: { 'Accept': 'application/json' }
+                        });
+                        const data = await response.json();
+                        if (data.success) {
+                            this.bankDetails = data.bankDetails;
+                        } else {
+                            this.error = data.message || 'Failed to load bank details';
+                        }
+                    } catch (err) {
+                        this.error = 'Error connecting to server: ' + err.message;
+                    } finally {
+                        this.loading = false;
+                    }
+                },
+
+                downloadInstructions() {
+                    const content = `
+Bank Transfer Instructions for Kuraa Galaan Charity
+Account Name: ${this.bankDetails.accountName}
+Account Number: ${this.bankDetails.accountNumber}
+Bank Name: ${this.bankDetails.bankName}
+Branch: ${this.bankDetails.branch}
+SWIFT Code: ${this.bankDetails.swiftCode}
+Instructions: ${this.bankDetails.instructions}
+                    `;
+                    const blob = new Blob([content], { type: 'text/plain' });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'bank-transfer-instructions.txt';
+                    a.click();
+                    URL.revokeObjectURL(url);
+                },
+
+                async uploadReceipt() {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const donationId = urlParams.get('donation_id');
+                    if (!this.$refs.receipt.files[0]) {
+                        this.showNotification('error', 'Please select a file to upload');
+                        return;
+                    }
+                    this.uploading = true;
+                    const formData = new FormData();
+                    formData.append('receipt', this.$refs.receipt.files[0]);
+                    formData.append('donation_id', donationId);
+                    try {
+                        const response = await fetch('https://kuraagalaan-charity-backend.onrender.com/api/donations/upload-receipt', {
+                            method: 'POST',
+                            body: formData
+                        });
+                        const data = await response.json();
+                        if (data.success) {
+                            this.showNotification('success', data.message || 'Receipt uploaded successfully');
+                            this.$refs.receipt.value = ''; // Clear file input
+                        } else {
+                            this.showNotification('error', data.message || 'Failed to upload receipt');
+                        }
+                    } catch (err) {
+                        this.showNotification('error', 'Error uploading receipt: ' + err.message);
+                    } finally {
+                        this.uploading = false;
+                    }
+                },
+
+                showNotification(type, message) {
+                    this.messageType = type;
+                    this.messageText = message;
+                    this.showMessage = true;
+                    setTimeout(() => {
+                        this.showMessage = false;
+                    }, 5000);
+                }
+            };
+        }
+    </script>
+</body>
+</html>
